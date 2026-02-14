@@ -5,8 +5,7 @@ import { remarkRehypeWrap } from 'remark-rehype-wrap'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
 import createNextIntlPlugin from 'next-intl/plugin';
 
-// Unused imports related to shiki/layout removed or kept if needed for other things?
-// Keeping imports clean.
+// Import necessary types if we were in TS, but this is MJS.
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -21,9 +20,19 @@ const nextConfig = {
 
 const withNextIntl = createNextIntlPlugin();
 
-let withMDX = nextMDX({
-  extension: /\.mdx$/,
-})
+export default async function config() {
+  let withMDX = nextMDX({
+    extension: /\.mdx$/,
+    options: {
+      remarkPlugins: [
+        remarkGfm,
+      ],
+      rehypePlugins: [
+      ],
+      // We are omitting recmaPlugins and complex remark/rehype plugins 
+      // to avoid non-serializable options error in Next.js 16.
+    },
+  })
 
-return withNextIntl(withMDX(nextConfig))
+  return withNextIntl(withMDX(nextConfig))
 }
