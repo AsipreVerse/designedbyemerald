@@ -1,7 +1,7 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
@@ -192,7 +192,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home({ params: { locale } }: Props) {
-    unstable_setRequestLocale(locale)
+    setRequestLocale(locale)
     let caseStudies = (await loadCaseStudies()).slice(0, 3)
 
     return (

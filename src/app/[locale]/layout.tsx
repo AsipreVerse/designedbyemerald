@@ -3,7 +3,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { Prata, Cinzel, Josefin_Sans, Bodoni_Moda } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages, unstable_setRequestLocale } from 'next-intl/server'
+import { getMessages, setRequestLocale } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 
 import '@/styles/tailwind.css'
@@ -85,7 +85,7 @@ export default async function LocaleLayout({
     }
 
     // Enable static rendering
-    unstable_setRequestLocale(locale)
+    setRequestLocale(locale)
 
     // Providing all messages to the client
     // side is the easiest way to get started
