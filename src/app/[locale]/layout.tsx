@@ -1,10 +1,11 @@
 import { type Metadata } from 'next'
-import { Analytics } from '@vercel/analytics/react'
-import { Prata, Cinzel, Josefin_Sans, Bodoni_Moda } from 'next/font/google'
+import { Prata, Cinzel, Josefin_Sans, Cairo, Amiri } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages, setRequestLocale } from 'next-intl/server'
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
+
+import { ConsentAnalytics } from '@/components/ConsentAnalytics'
 
 import '@/styles/tailwind.css'
 
@@ -29,43 +30,79 @@ const josefinSans = Josefin_Sans({
     variable: '--font-sans',
 })
 
-const bodoni = Bodoni_Moda({
-    subsets: ['latin'],
-    weight: ['400', '500', '600', '700', '800', '900'],
+const cairo = Cairo({
+    subsets: ['arabic'],
+    weight: ['300', '400', '500', '600', '700'],
     display: 'swap',
-    variable: '--font-bodoni',
+    variable: '--font-cairo',
 })
 
-export const metadata: Metadata = {
-    metadataBase: new URL('https://designedbyemerald.com'),
-    title: {
-        template: '%s - Designed by Emerald',
-        default: 'Designed by Emerald - Interior Design & Fit-Out, Dubai',
-    },
-    description:
-        'Designed by Emerald is an interior design studio focused on creating elegant, functional and timeless spaces in Dubai. Specialising in high-end residential, commercial, healthcare and hospitality interiors.',
-    keywords: [
-        'interior design Dubai',
-        'fit-out company Dubai',
-        'residential interior design Dubai',
-        'commercial fit-out Dubai',
-        'luxury interiors Dubai',
-        'smart building integration Dubai',
-        'interior design studio UAE',
-        'Designed by Emerald',
-    ],
-    icons: {
-        icon: [
-            { url: '/favicon.svg', type: 'image/svg+xml' },
-            { url: '/favicon.ico', sizes: 'any' },
-            { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-        ],
-        apple: '/apple-touch-icon.png',
-    },
-    manifest: '/site.webmanifest',
-    other: {
-        'theme-color': '#1a3d2e',
-    },
+const amiri = Amiri({
+    subsets: ['arabic'],
+    weight: ['400', '700'],
+    display: 'swap',
+    variable: '--font-amiri',
+})
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+    const { locale } = await params
+    const t = await getTranslations({ locale, namespace: 'Metadata' })
+
+    return {
+        metadataBase: new URL('https://designedbyemerald.com'),
+        title: {
+            template: t('title.template'),
+            default: t('title.default'),
+        },
+        description: t('description'),
+        keywords: t('keywords').split(', '),
+        icons: {
+            icon: [
+                { url: '/favicon.svg', type: 'image/svg+xml' },
+                { url: '/favicon.ico', sizes: 'any' },
+                { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+            ],
+            apple: '/apple-touch-icon.png',
+        },
+        manifest: '/site.webmanifest',
+        openGraph: {
+            title: t('title.default'),
+            description: t('description'),
+            url: 'https://designedbyemerald.com',
+            siteName: 'Designed by Emerald',
+            locale: locale,
+            type: 'website',
+            images: [
+                {
+                    url: '/og-image.jpg',
+                    width: 1080,
+                    height: 1080,
+                    alt: 'Designed by Emerald — Interior Design & Fit-Out | Dubai',
+                    type: 'image/jpeg',
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('title.default'),
+            description: t('description'),
+            images: ['/og-image.jpg'],
+        },
+        alternates: {
+            canonical: `/${locale}`,
+            languages: {
+                en: '/en',
+                ar: '/ar',
+            },
+        },
+        other: {
+            'theme-color': '#1a3d2e',
+        },
+    }
 }
 
 export function generateStaticParams() {
@@ -97,13 +134,50 @@ export default async function LocaleLayout({
         <html
             lang={locale}
             dir={locale === 'ar' ? 'rtl' : 'ltr'}
-            className={`h-full bg-neutral-950 text-base antialiased ${prata.variable} ${cinzel.variable} ${josefinSans.variable} ${bodoni.variable}`}
+            className={`h-full bg-neutral-950 text-base antialiased ${prata.variable} ${cinzel.variable} ${josefinSans.variable} ${cairo.variable} ${amiri.variable}`}
         >
             <body className="flex min-h-full flex-col">
                 <NextIntlClientProvider messages={messages}>
                     {children}
-                    <Analytics />
+                    <ConsentAnalytics />
                 </NextIntlClientProvider>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@context': 'https://schema.org',
+                            '@type': 'ProfessionalService',
+                            name: 'Designed by Emerald',
+                            alternateName: 'DBE',
+                            url: 'https://designedbyemerald.com',
+                            logo: 'https://designedbyemerald.com/favicon.svg',
+                            image: 'https://designedbyemerald.com/og-image.jpg',
+                            description:
+                                'Interior design, fit-out, MEP, and facility management solutions in Dubai, UAE.',
+                            address: {
+                                '@type': 'PostalAddress',
+                                streetAddress: 'The Meydan Hotel',
+                                addressLocality: 'Dubai',
+                                addressCountry: 'AE',
+                            },
+                            telephone: '+971582495005',
+                            email: 'info@designedbyemerald.com',
+                            areaServed: {
+                                '@type': 'Country',
+                                name: 'United Arab Emirates',
+                            },
+                            serviceType: [
+                                'Interior Design',
+                                'Fit-Out',
+                                'MEP Services',
+                                'Facility Management',
+                            ],
+                            sameAs: [
+                                'https://www.instagram.com/designedbyemerald.studio',
+                            ],
+                        }),
+                    }}
+                />
             </body>
         </html>
     )

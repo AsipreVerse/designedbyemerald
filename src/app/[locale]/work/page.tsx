@@ -1,4 +1,8 @@
 import { type Metadata } from 'next'
+import { useTranslations } from 'next-intl'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import Image from 'next/image'
+import Link from 'next/link'
 
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
@@ -9,19 +13,24 @@ import { Border } from '@/components/Border'
 import { formatDate } from '@/lib/formatDate'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
-import Image from 'next/image'
-import Link from 'next/link'
+
+// Types for params
+type Props = {
+  params: Promise<{ locale: string }>
+}
 
 function CaseStudies({
   caseStudies,
 }: {
   caseStudies: Array<MDXEntry<CaseStudy>>
 }) {
+  const t = useTranslations('Work')
+
   return (
     <Container className="mt-40">
       <FadeIn>
         <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          Projects
+          {t('projects')}
         </h2>
       </FadeIn>
       <div className="mt-10 space-y-20 sm:space-y-24 lg:space-y-32">
@@ -63,9 +72,9 @@ function CaseStudies({
                   <div className="mt-8 flex">
                     <Button
                       href={caseStudy.href}
-                      aria-label={`Read case study: ${caseStudy.client}`}
+                      aria-label={`${t('readCaseStudy')}: ${caseStudy.client}`}
                     >
-                      Read case study
+                      {t('readCaseStudy')}
                     </Button>
                   </div>
                 </div>
@@ -78,32 +87,41 @@ function CaseStudies({
   )
 }
 
-export const metadata: Metadata = {
-  title: 'Portfolio',
-  description:
-    'Designed by Emerald creates elegant, functional and timeless spaces across residential, commercial, healthcare and corporate sectors.',
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'Work' })
+
+  return {
+    title: t('eyebrow'),
+    description: t('description'),
+  }
 }
 
-export default async function Work() {
-  let caseStudies = await loadCaseStudies()
+export default async function Work({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  let caseStudies = await loadCaseStudies(locale)
 
   return (
     <RootLayout>
-      <PageIntro
-        eyebrow="Portfolio"
-        title="Spaces designed with purpose and precision."
-      >
-        <p>
-          Each project reflects our commitment to creating elegant, functional
-          and timeless spaces. From private residences to commercial
-          environments, we approach every brief with the same attention to
-          detail and respect for materiality.
-        </p>
-      </PageIntro>
-
+      <WorkPageIntro />
       <CaseStudies caseStudies={caseStudies} />
-
       <ContactSection />
     </RootLayout>
+  )
+}
+
+function WorkPageIntro() {
+  const t = useTranslations('Work')
+
+  return (
+    <PageIntro
+      eyebrow={t('eyebrow')}
+      title={t('heading')}
+    >
+      <p>
+        {t('description')}
+      </p>
+    </PageIntro>
   )
 }

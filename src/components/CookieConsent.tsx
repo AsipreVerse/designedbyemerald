@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 export function CookieConsent() {
+    const t = useTranslations('CookieConsent')
     const [visible, setVisible] = useState(false)
 
     useEffect(() => {
@@ -45,13 +47,12 @@ export function CookieConsent() {
             >
                 <div className="relative z-10 bg-marble-deep/90 px-6 py-5">
                     <p className="text-sm leading-relaxed text-cream-50/90">
-                        We use Vercel Analytics to understand how visitors engage with our
-                        website. No personal data is collected.{' '}
+                        {t('content')}{' '}
                         <Link
                             href="/privacy"
                             className="underline underline-offset-2 transition hover:text-gold"
                         >
-                            Privacy Policy
+                            {t('privacy')}
                         </Link>
                     </p>
                     <div className="mt-4 flex items-center gap-3">
@@ -59,13 +60,13 @@ export function CookieConsent() {
                             onClick={handleAccept}
                             className="bg-gold px-5 py-2 text-xs font-medium uppercase tracking-[0.15em] text-marble-deep transition hover:bg-gold-light"
                         >
-                            Accept
+                            {t('accept')}
                         </button>
                         <button
                             onClick={handleDecline}
                             className="px-5 py-2 text-xs font-medium uppercase tracking-[0.15em] text-cream-50/60 transition hover:text-cream-50"
                         >
-                            Decline
+                            {t('decline')}
                         </button>
                     </div>
                 </div>

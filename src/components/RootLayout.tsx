@@ -11,12 +11,14 @@ import {
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
+import { useTranslations } from 'next-intl'
 
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { Logo, Logomark } from '@/components/Logo'
 import { CookieConsent } from '@/components/CookieConsent'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
+import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -77,7 +79,8 @@ function Header({
             filled={logoHovered}
           />
         </Link>
-        <div className="flex items-center gap-x-8">
+        <div className="flex items-center gap-x-4 sm:gap-x-6">
+          <LanguageSwitcher invert={invert} />
           <button
             ref={toggleRef}
             type="button"
@@ -134,17 +137,76 @@ function NavigationItem({
 }
 
 function Navigation() {
+  const t = useTranslations('Navigation')
+
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-cream-50">
       <NavigationRow>
-        <NavigationItem href="/work">Portfolio</NavigationItem>
-        <NavigationItem href="/services">Services</NavigationItem>
+        <NavigationItem href="/services">{t('services')}</NavigationItem>
+        <NavigationItem href="/about">{t('about')}</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/about">About Us</NavigationItem>
-        <NavigationItem href="/contact">Contact</NavigationItem>
+        <NavigationItem href="/contact">{t('contact')}</NavigationItem>
       </NavigationRow>
     </nav>
+  )
+}
+
+function NavOverlayContact() {
+  const t = useTranslations('Footer')
+
+  return (
+    <div className="relative bg-marble-deep before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-cream-50/10">
+      <Container>
+        <div className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
+          <div>
+            <h2 className="font-heading text-xs font-normal uppercase tracking-[0.25em] text-gold">
+              {t('office')}
+            </h2>
+            <address className="mt-4 text-sm not-italic text-cream-50/70">
+              <strong className="text-cream-50">Dubai</strong>
+              <br />
+              {t('location')}
+            </address>
+          </div>
+          <div className="sm:border-l sm:border-cream-50/10 sm:pl-16">
+            <h2 className="font-heading text-xs font-normal uppercase tracking-[0.25em] text-gold">
+              {t('connect')}
+            </h2>
+            <ul className="mt-4 space-y-2 text-sm text-cream-50/70">
+              <li>
+                <a
+                  href="https://wa.me/971582495005"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition hover:text-cream-50"
+                >
+                  <span className="force-ltr">+971 58 249 5005</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@designedbyemerald.com"
+                  className="transition hover:text-cream-50 force-ltr inline-block"
+                >
+                  info@designedbyemerald.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/designedbyemerald.studio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition hover:text-cream-50"
+                >
+                  <span className="force-ltr">@designedbyemerald.studio</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Container>
+    </div>
   )
 }
 
@@ -231,59 +293,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                 />
               </div>
               <Navigation />
-              <div className="relative bg-marble-deep before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-cream-50/10">
-                <Container>
-                  <div className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
-                    <div>
-                      <h2 className="font-heading text-xs font-normal uppercase tracking-[0.25em] text-gold">
-                        Our Office
-                      </h2>
-                      <address className="mt-4 text-sm not-italic text-cream-50/70">
-                        <strong className="text-cream-50">Dubai</strong>
-                        <br />
-                        The Meydan Hotel
-                        <br />
-                        Dubai, United Arab Emirates
-                      </address>
-                    </div>
-                    <div className="sm:border-l sm:border-cream-50/10 sm:pl-16">
-                      <h2 className="font-heading text-xs font-normal uppercase tracking-[0.25em] text-gold">
-                        Connect
-                      </h2>
-                      <ul className="mt-4 space-y-2 text-sm text-cream-50/70">
-                        <li>
-                          <a
-                            href="https://wa.me/971582495005"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="transition hover:text-cream-50"
-                          >
-                            +971 58 249 5005
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="mailto:info@designedbyemerald.com"
-                            className="transition hover:text-cream-50"
-                          >
-                            info@designedbyemerald.com
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://www.instagram.com/designedbyemerald.studio"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="transition hover:text-cream-50"
-                          >
-                            @designedbyemerald.studio
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </Container>
-              </div>
+              <NavOverlayContact />
             </div>
           </div>
         )}

@@ -1,0 +1,43 @@
+import logo from '@/images/clients/dbe-logomark.svg'
+import imageHero from './albadia-residence-living-01.jpg'
+import living2 from './albadia-residence-living-02.jpg'
+import living3 from './albadia-residence-living-03.jpg'
+import living4 from './albadia-residence-living-04.jpg'
+
+export const caseStudy = {
+  client: 'Albadia Living Room',
+  title: 'Albadia Living Room',
+  description:
+    'This warm modern living room focuses on creating a calm and inviting atmosphere through natural materials, soft lighting, and clean architectural lines.',
+  summary: [
+    'This warm modern living room focuses on creating a calm and inviting atmosphere through natural materials, soft lighting, and clean architectural lines.',
+    'Wood finishes and neutral tones add warmth, while integrated lighting enhances depth and comfort. The design balances functionality and elegance to achieve a timeless, refined living space.',
+  ],
+  logo,
+  image: { src: imageHero },
+  gallery: [
+    { src: living2, alt: 'Living Room Seating' },
+    { src: living3, alt: 'Living Room Detail' },
+    { src: living4, alt: 'Living Room Angle' },
+  ],
+  date: '2024-08',
+  service: 'Interior Design, Residential',
+}
+
+export const metadata = {
+  title: `${caseStudy.client} Case Study`,
+  description: caseStudy.description,
+}
+
+## Overview
+
+This warm modern living room focuses on creating a calm and inviting atmosphere through natural materials, soft lighting, and clean architectural lines. Wood finishes and neutral tones add warmth, while integrated lighting enhances depth and comfort. The design balances functionality and elegance to achieve a timeless, refined living space.
+
+## What we did
+
+<TagList>
+  <TagListItem>Interior Design</TagListItem>
+  <TagListItem>Space Planning</TagListItem>
+  <TagListItem>Material Selection</TagListItem>
+  <TagListItem>Furniture Curation</TagListItem>
+</TagList>

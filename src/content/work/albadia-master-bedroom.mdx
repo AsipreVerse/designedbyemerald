@@ -1,9 +1,13 @@
 import logo from '@/images/clients/dbe-logomark.svg'
-import imageHero from './hero.jpg'
+import imageHero from './albadia-residence-bedroom-01.jpg'
+import bed2 from './albadia-residence-bedroom-02.jpg'
+import bed3 from './albadia-residence-bedroom-03.jpg'
+// Optional 4th image if user decides to include page-011-037 later
+// import bed4 from './page-011-037.jpg'
 
 export const caseStudy = {
-  client: 'Dubai Festival City Albadia',
-  title: 'Dubai Festival City Albadia',
+  client: 'Albadia Master Bedroom',
+  title: 'Albadia Master Bedroom',
   description:
     'This master bedroom is designed using a warm neutral palette, layered textiles, and soft wood finishes to create a calm and intimate atmosphere.',
   summary: [
@@ -12,7 +16,11 @@ export const caseStudy = {
   ],
   logo,
   image: { src: imageHero },
-  date: '2024-03',
+  gallery: [
+    { src: bed2, alt: 'Master Bedroom View 2' },
+    { src: bed3, alt: 'Master Bedroom Detail' },
+  ],
+  date: '2024-09',
   service: 'Interior Design, Residential',
 }
 
@@ -21,17 +29,9 @@ export const metadata = {
   description: caseStudy.description,
 }
 
-## Master Bedroom
+## Overview
 
 This master bedroom is designed using a warm neutral palette, layered textiles, and soft wood finishes to create a calm and intimate atmosphere. The upholstered bed, textured wall panels, and integrated bedside lighting add depth while maintaining visual softness. A glass partition subtly separates the sleeping area from the lounge and vanity zone, enhancing functionality without compromising openness.
-
-## Living Room
-
-This warm modern living room focuses on creating a calm and inviting atmosphere through natural materials, soft lighting, and clean architectural lines. Wood finishes and neutral tones add warmth, while integrated lighting enhances depth and comfort. The design balances functionality and elegance to achieve a timeless, refined living space.
-
-## Kids Bedroom
-
-This kids' bedroom is designed with a soft blush and neutral palette, creating a playful yet calm environment. Rounded furniture, curved headboard details, and custom joinery introduce a child-friendly design while maintaining a refined aesthetic. A dedicated play and study zone is integrated using low seating, a central round table, and open shelving for books and toys. Patterned wallpaper, soft textures, and warm lighting complete a cozy and imaginative space that grows with the child.
 
 ## What we did
 
@@ -39,5 +39,5 @@ This kids' bedroom is designed with a soft blush and neutral palette, creating a
   <TagListItem>Interior Design</TagListItem>
   <TagListItem>Space Planning</TagListItem>
   <TagListItem>Material Selection</TagListItem>
-  <TagListItem>Joinery Design</TagListItem>
+  <TagListItem>Lighting Design</TagListItem>
 </TagList>

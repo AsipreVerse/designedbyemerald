@@ -1,39 +1,294 @@
 {
     "Navigation": {
-        "work": "Portfolio",
         "services": "Services",
         "about": "About Us",
         "contact": "Contact"
     },
     "Hero": {
-        "title": "Refined Interiors for Modern Living",
-        "subtitle": "Designed by Emerald"
+        "line1": "Where Precision",
+        "line2": "Meets Beauty.",
+        "subtitle": "Interior design, fit-out, and engineering solutions — Dubai, UAE."
     },
     "Intro": {
-        "heading": "The Essence of Luxury",
-        "p1": "We believe that luxury is not just about aesthetics, but about how a space makes you feel. At Designed by Emerald, we curate environments that are as functional as they are beautiful.",
-        "p2": "From high-end residential villas to exclusive commercial spaces, our approach is rooted in a deep understanding of our clients' aspirations, translated into timeless designs."
+        "heading": "Comprehensive solutions, from concept to completion.",
+        "p1": "Designed by Emerald is a comprehensive solutions provider specialising in interior design, engineering systems, and facility management. Based in the UAE, we deliver end-to-end solutions that integrate creative design with technical precision, ensuring every project reflects quality, innovation, and sustainability. From concept to completion, we are committed to transforming spaces into functional, aesthetically refined environments."
     },
-    "Services": {
-        "heading": "Our Expertise",
-        "interiorDesign": "Interior Design",
-        "fitOut": "Turnkey Fit-Out",
-        "consultancy": "Design Consultancy",
-        "furniture": "Bespoke Furniture"
+    "Projects": {
+        "title": "Our projects",
+        "description": "From concept through to completion, we create bespoke interiors that reflect the character of every client and the culture of the UAE.",
+        "projectLabel": "Project"
+    },
+    "Solutions": {
+        "eyebrow": "Solutions",
+        "title": "Tailored, end-to-end solutions for every space.",
+        "description": "At DBE, we provide tailored, end-to-end solutions that address the unique challenges of building management, fit-out work, and electrotechnical services.",
+        "items": {
+            "fitout": {
+                "title": "Turnkey Fit-Out and Interior Solutions",
+                "description": "Customized space planning and interior design. High-quality finishing with attention to detail. Seamless project execution from concept to completion."
+            },
+            "sustainable": {
+                "title": "Smart and Sustainable Solutions",
+                "description": "Energy-efficient systems to reduce costs and environmental impact. Smart automation for optimized building performance."
+            },
+            "engineering": {
+                "title": "Advanced Electromechanical and Engineering Solutions",
+                "description": "Cutting-edge electrical installations and network systems. Reliable power distribution and backup solutions. Integration of smart control systems for enhanced efficiency."
+            },
+            "management": {
+                "title": "Building Management",
+                "description": "24/7 facility maintenance and operational support. Safety, security, and compliance management. Lifecycle asset management for long-term value."
+            }
+        }
+    },
+    "Contact": {
+        "title": "Let us transform your space",
+        "subtitle": "Reach out directly to begin your design journey.",
+        "whatsapp": "WhatsApp Us",
+        "email": "Email Us",
+        "metaTitle": "Contact Us",
+        "metaDescription": "Get in touch with Designed by Emerald to discuss your interior design or fit-out project in Dubai.",
+        "pageEyebrow": "Contact",
+        "pageTitle": "Let us bring your vision to life",
+        "pageBody": "Whether you are planning a new build, renovation or commercial fit-out, we would love to hear about your project.",
+        "reachHeading": "Reach Us Directly",
+        "reachBody": "We believe in personal connection. Reach out directly and we will respond within 24 hours.",
+        "whatsappLabel": "WhatsApp",
+        "whatsappNote": "Preferred for project enquiries",
+        "emailLabel": "Email",
+        "emailNote": "For detailed briefs and proposals",
+        "instagramLabel": "Instagram",
+        "instagramNote": "Follow our latest projects",
+        "studioLabel": "Studio",
+        "studioAddress1": "The Meydan Hotel",
+        "studioAddress2": "Dubai, United Arab Emirates"
     },
     "Footer": {
+        "taglineLine1": "Where Precision",
+        "taglineLine2": "Meets Beauty.",
+        "studio": "Studio",
+        "legal": "Legal",
         "office": "Our Office",
         "connect": "Connect",
         "rights": "All rights reserved.",
         "privacy": "Privacy Policy",
-        "developedBy": "Developed by"
+        "developedBy": "Developed by",
+        "projects": "Projects",
+        "location": "The Meydan Hotel, Dubai"
     },
-    "Contact": {
-        "title": "Get in Touch",
-        "name": "Name",
-        "email": "Email",
-        "phone": "Phone Number",
-        "message": "Message",
-        "submit": "Send Message"
+    "Work": {
+        "eyebrow": "Portfolio",
+        "heading": "Spaces designed with purpose and precision.",
+        "description": "Each project reflects our commitment to creating elegant, functional and timeless spaces. From private residences to commercial environments, we approach every brief with the same attention to detail and respect for materiality.",
+        "projects": "Projects",
+        "readCaseStudy": "View project"
+    },
+    "CookieConsent": {
+        "content": "This website uses analytics cookies to improve your experience. You may accept or decline.",
+        "privacy": "Privacy Policy",
+        "accept": "Accept",
+        "decline": "Decline"
+    },
+    "NotFound": {
+        "code": "404",
+        "title": "Page not found",
+        "description": "Sorry, we couldn’t find the page you’re looking for.",
+        "backHome": "Go to the home page"
+    },
+    "Error": {
+        "title": "Something went wrong",
+        "description": "We apologise for the inconvenience. Please try again later.",
+        "retry": "Try again",
+        "backHome": "Go to the home page"
+    },
+    "About": {
+        "metaTitle": "About Us",
+        "metaDescription": "Designed by Emerald is an interior design studio focused on creating elegant, functional and timeless spaces.",
+        "eyebrow": "About us",
+        "title": "Comprehensive solutions, from concept to completion",
+        "body": "Designed by Emerald is a comprehensive solutions provider specializing in interior design, MEP systems, and facility management. Based in the UAE, we deliver end-to-end solutions that integrate creative design with technical precision.",
+        "specialties": {
+            "residential": "High-end residential interiors",
+            "villas": "Villas and private homes",
+            "corporate": "Corporate and office environments",
+            "healthcare": "Clinics and healthcare spaces",
+            "commercial": "Retail and commercial projects"
+        },
+        "vision": {
+            "heading": "Vision",
+            "body": "To be a leading force in the construction and building management industry, recognized for <bold>innovation, quality, and sustainability</bold>. We aspire to set new benchmarks in design, engineering, and facility management — redefining how spaces are built, managed, and experienced."
+        },
+        "mission": {
+            "heading": "Mission",
+            "body": "To deliver exceptional construction, fit-out, and building management solutions by combining <bold>technical expertise with creative innovation</bold>. We are dedicated to exceeding client expectations through precision, quality craftsmanship, and sustainable practices while creating environments that are functional, inspiring, and built to last."
+        },
+        "innovation": {
+            "heading": "Innovation",
+            "body": "Innovation is at the heart of everything we do. We embrace cutting-edge technology, smart design, and forward-thinking solutions to enhance efficiency, sustainability, and performance in building management, fit-out work, and electrotechnical services.",
+            "pillars": {
+                "smart": {
+                    "title": "Smart Building Solutions",
+                    "description": "Integrating automation, IoT, and AI for seamless operation and energy efficiency."
+                },
+                "sustainable": {
+                    "title": "Sustainable Practices and Environmental Stewardship",
+                    "description": "We are at the forefront of implementing eco-friendly materials, energy-saving systems, and green technologies."
+                },
+                "construction": {
+                    "title": "Advanced Construction Methods",
+                    "description": "Utilizing modular designs, prefabrication, and digital modeling for precision and speed."
+                },
+                "customized": {
+                    "title": "Customized Solutions",
+                    "description": "Tailoring every project to meet the unique needs of our clients with innovative problem-solving."
+                }
+            }
+        },
+        "hse": {
+            "eyebrow": "Our commitment",
+            "title": "Health, Safety, and Environmental Responsibility",
+            "body": "At DBE, we prioritize health, safety, and environmental responsibility in every project. Our strict safety protocols, regular risk assessments, and employee training ensure a secure working environment. We integrate green building practices, use sustainable materials, and focus on energy efficiency to minimize our environmental impact."
+        }
+    },
+    "Services": {
+        "metaTitle": "Services",
+        "metaDescription": "Tailored, end-to-end interior design, fit-out, and building management solutions by Designed by Emerald in Dubai.",
+        "eyebrow": "Solutions",
+        "title": "Tailored, end-to-end solutions",
+        "body": "At DBE, we provide tailored, end-to-end solutions that address the unique challenges of building management, fit-out work, and electrotechnical services. Our goal is to create efficient, sustainable, and high-performing environments.",
+        "sustainable": {
+            "title": "Smart and Sustainable Solutions",
+            "subtitle": "Creating environments that are efficient, responsible and future-ready.",
+            "items": {
+                "energy": {
+                    "title": "Energy-Efficient Systems",
+                    "description": "Energy-efficient systems to reduce costs and environmental impact."
+                },
+                "automation": {
+                    "title": "Smart Automation",
+                    "description": "Smart automation for optimized building performance."
+                },
+                "materials": {
+                    "title": "Sustainable Materials",
+                    "description": "Sustainable materials and eco-friendly construction practices."
+                }
+            }
+        },
+        "fitout": {
+            "title": "Turnkey Fit-Out and Interior Solutions",
+            "subtitle": "From concept to completion, delivered to the highest standard.",
+            "items": {
+                "planning": {
+                    "title": "Space Planning and Interior Design",
+                    "description": "Customized space planning and interior design."
+                },
+                "finishing": {
+                    "title": "High-Quality Finishing",
+                    "description": "High-quality finishing with attention to detail."
+                },
+                "delivery": {
+                    "title": "Project Delivery",
+                    "description": "Seamless project execution from concept to completion."
+                }
+            }
+        },
+        "engineering": {
+            "title": "Advanced Electromechanical and Engineering Solutions",
+            "subtitle": "Reliable systems that power and protect your environment.",
+            "items": {
+                "electrical": {
+                    "title": "Electrical Installations",
+                    "description": "Cutting-edge electrical installations and network systems."
+                },
+                "power": {
+                    "title": "Power Distribution",
+                    "description": "Reliable power distribution and backup solutions."
+                },
+                "controls": {
+                    "title": "Smart Control Systems",
+                    "description": "Integration of smart control systems for enhanced efficiency."
+                }
+            }
+        },
+        "management": {
+            "title": "Comprehensive Building Management Solutions",
+            "subtitle": "Ongoing support that protects your investment.",
+            "items": {
+                "maintenance": {
+                    "title": "Facility Maintenance",
+                    "description": "24/7 facility maintenance and operational support."
+                },
+                "safety": {
+                    "title": "Safety and Compliance",
+                    "description": "Safety, security, and compliance management."
+                },
+                "lifecycle": {
+                    "title": "Lifecycle Asset Management",
+                    "description": "Lifecycle asset management for long-term value."
+                }
+            }
+        }
+    },
+    "Privacy": {
+        "metaTitle": "Privacy Policy",
+        "metaDescription": "Privacy policy for Designed by Emerald. How we handle your data in compliance with UAE Federal Decree-Law No. 45 of 2021 (PDPL).",
+        "eyebrow": "Legal",
+        "title": "Privacy Policy",
+        "body": "At Designed by Emerald, we respect your privacy and are committed to protecting your personal data in accordance with the UAE Personal Data Protection Law (Federal Decree-Law No. 45 of 2021).",
+        "lastUpdated": "Last updated: 14 February 2026",
+        "whoWeAre": "Who We Are",
+        "whoWeAreBody": "Designed by Emerald is an interior design studio based in Dubai, United Arab Emirates. Our registered office is at The Meydan Hotel, Dubai.",
+        "dataCollect": "Data We Collect",
+        "dataCollectBody": "We collect minimal data to improve your experience on our website:",
+        "analyticsTitle": "Analytics data (with consent):",
+        "analyticsBody": "We use Vercel Web Analytics, which collects anonymous, aggregated page-view data. This includes page URLs, referrer URLs, browser type, and country-level geolocation. No personally identifiable information (PII) is collected, and no cookies are used for tracking.",
+        "commTitle": "Communication data:",
+        "commBody": "When you contact us via WhatsApp or email, we receive the information you choose to share. This is processed solely for responding to your enquiry.",
+        "legalBasis": "Legal Basis for Processing",
+        "legalBasisBody": "We process your data based on the following lawful grounds under the UAE PDPL:",
+        "consentTitle": "Consent:",
+        "consentBody": "Analytics data is only collected after you explicitly consent via our cookie banner.",
+        "legitimateTitle": "Legitimate interest:",
+        "legitimateBody": "Responding to enquiries you initiate via WhatsApp or email.",
+        "howWeUse": "How We Use Your Data",
+        "howWeUseItem1": "To understand how visitors use our website and improve its performance",
+        "howWeUseItem2": "To respond to your enquiries about our interior design services",
+        "howWeUseBody": "We do not sell, share, or transfer your personal data to any third parties for marketing purposes.",
+        "retention": "Data Retention",
+        "retentionBody": "Analytics data is retained by Vercel for a maximum of 30 days. Communication records (WhatsApp and email) are retained only for as long as necessary to fulfil the purpose of your enquiry.",
+        "rights": "Your Rights",
+        "rightsBody": "Under the UAE PDPL, you have the right to:",
+        "rightsItems": {
+            "access": "Access your personal data",
+            "rectify": "Request rectification of inaccurate data",
+            "erase": "Request erasure of your data",
+            "restrict": "Restrict or object to processing",
+            "withdraw": "Withdraw consent at any time"
+        },
+        "rightsWithdraw": "To withdraw analytics consent, clear your browser's local storage for this website, or contact us directly.",
+        "thirdParty": "Third-Party Services",
+        "thirdPartyService": "Service",
+        "thirdPartyPurpose": "Purpose",
+        "thirdPartyData": "Data Collected",
+        "vercelService": "Vercel Analytics",
+        "vercelPurpose": "Website performance",
+        "vercelData": "Anonymous page views (no PII)",
+        "whatsappService": "WhatsApp (Meta)",
+        "whatsappPurpose": "Client communication",
+        "whatsappData": "Messages you send to us",
+        "transfers": "International Data Transfers",
+        "transfersBody": "Vercel Analytics data may be processed outside the UAE. Vercel maintains appropriate data protection standards in accordance with their privacy policy and applicable regulations.",
+        "contactUs": "Contact Us",
+        "contactUsBody": "For any privacy-related enquiries or to exercise your rights, please contact us:",
+        "changes": "Changes to This Policy",
+        "changesBody": "We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date."
+    },
+    "Metadata": {
+        "title": {
+            "default": "Designed by Emerald — Interior Design & Fit-Out | Dubai, UAE",
+            "template": "%s — Designed by Emerald"
+        },
+        "description": "Where Precision Meets Beauty. Interior design, fit-out, MEP, and facility management solutions in Dubai, UAE. From concept to completion.",
+        "keywords": "interior design Dubai, fit-out company Dubai, luxury interior design UAE, MEP services Dubai, villa interior design Dubai, commercial interior design Dubai, office fit-out Dubai, interior designer Dubai, Designed by Emerald"
     }
 }

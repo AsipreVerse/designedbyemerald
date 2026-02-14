@@ -4,21 +4,38 @@ import glob from 'fast-glob'
 async function loadEntries<T extends { date: string }>(
   directory: string,
   metaName: string,
+  locale: string,
 ): Promise<Array<MDXEntry<T>>> {
+  // Get all .mdx files in the directory
+  const allFiles = await glob('*.mdx', { cwd: `src/content/${directory}` })
+
+  // Filter for the base files (non-localized or default locale) to establish the list of entries
+  const baseFiles = allFiles.filter(f => !f.includes('.ar.mdx'))
+
   return (
     await Promise.all(
-      (await glob('**/page.mdx', { cwd: `src/app/${directory}` })).map(
-        async (filename) => {
-          let metadata = (await import(`../app/${directory}/${filename}`))[
-            metaName
-          ] as T
-          return {
-            ...metadata,
-            metadata,
-            href: `/${directory}/${filename.replace(/\/page\.mdx$/, '')}`,
+      baseFiles.map(async (filename) => {
+        const slug = filename.replace(/\.mdx$/, '')
+
+        // Determine which file to load based on locale
+        let fileToLoad = filename
+        if (locale === 'ar') {
+          const arFilename = filename.replace(/\.mdx$/, '.ar.mdx')
+          if (allFiles.includes(arFilename)) {
+            fileToLoad = arFilename
           }
-        },
-      ),
+        }
+
+        let metadata = (await import(`../content/${directory}/${fileToLoad}`))[
+          metaName
+        ] as T
+
+        return {
+          ...metadata,
+          metadata,
+          href: `/${directory}/${slug}`,
+        }
+      }),
     )
   ).sort((a, b) => b.date.localeCompare(a.date))
 }
@@ -46,6 +63,7 @@ export interface CaseStudy {
   summary: Array<string>
   logo: ImageProps['src']
   image: ImagePropsWithOptionalAlt
+  gallery?: Array<ImagePropsWithOptionalAlt>
   service: string
   testimonial: {
     author: {
@@ -56,10 +74,11 @@ export interface CaseStudy {
   }
 }
 
-export function loadArticles() {
-  return loadEntries<Article>('blog', 'article')
+export function loadArticles(locale: string) {
+  return loadEntries<Article>('blog', 'article', locale)
 }
 
-export function loadCaseStudies() {
-  return loadEntries<CaseStudy>('work', 'caseStudy')
+export function loadCaseStudies(locale: string) {
+  return loadEntries<CaseStudy>('work', 'caseStudy', locale)
 }
+
