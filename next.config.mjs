@@ -21,27 +21,9 @@ const nextConfig = {
 
 const withNextIntl = createNextIntlPlugin();
 
-export default async function config() {
-  let withMDX = nextMDX({
-    extension: /\.mdx$/,
-    options: {
-      recmaPlugins: [recmaImportImages],
-      rehypePlugins: [
-        rehypeUnwrapImages,
-        [
-          remarkRehypeWrap,
-          {
-            node: { type: 'mdxJsxFlowElement', name: 'Typography' },
-            start: ':root > :not(mdxJsxFlowElement)',
-            end: ':root > mdxJsxFlowElement',
-          },
-        ],
-      ],
-      remarkPlugins: [
-        remarkGfm,
-      ],
-    },
-  })
+let withMDX = nextMDX({
+  extension: /\.mdx$/,
+})
 
-  return withNextIntl(withMDX(nextConfig))
+return withNextIntl(withMDX(nextConfig))
 }
