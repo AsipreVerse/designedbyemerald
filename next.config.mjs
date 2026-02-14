@@ -1,15 +1,12 @@
-import rehypeShiki from '@leafac/rehype-shiki'
 import nextMDX from '@next/mdx'
-import { Parser } from 'acorn'
-import jsx from 'acorn-jsx'
-import escapeStringRegexp from 'escape-string-regexp'
-import * as path from 'path'
 import { recmaImportImages } from 'recma-import-images'
 import remarkGfm from 'remark-gfm'
 import { remarkRehypeWrap } from 'remark-rehype-wrap'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
-import shiki from 'shiki'
-import { unifiedConditional } from 'unified-conditional'
+import createNextIntlPlugin from 'next-intl/plugin';
+
+// Unused imports related to shiki/layout removed or kept if needed for other things?
+// Keeping imports clean.
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -22,27 +19,29 @@ const nextConfig = {
   },
 }
 
-import createNextIntlPlugin from 'next-intl/plugin';
-
 const withNextIntl = createNextIntlPlugin();
 
 export default async function config() {
-  rehypePlugins: [
-    rehypeUnwrapImages,
-    [
-      remarkRehypeWrap,
-      {
-        node: { type: 'mdxJsxFlowElement', name: 'Typography' },
-        start: ':root > :not(mdxJsxFlowElement)',
-        end: ':root > mdxJsxFlowElement',
-      },
-    ],
-  ],
-    remarkPlugins: [
-      remarkGfm,
-    ],
+  let withMDX = nextMDX({
+    extension: /\.mdx$/,
+    options: {
+      recmaPlugins: [recmaImportImages],
+      rehypePlugins: [
+        rehypeUnwrapImages,
+        [
+          remarkRehypeWrap,
+          {
+            node: { type: 'mdxJsxFlowElement', name: 'Typography' },
+            start: ':root > :not(mdxJsxFlowElement)',
+            end: ':root > mdxJsxFlowElement',
+          },
+        ],
+      ],
+      remarkPlugins: [
+        remarkGfm,
+      ],
     },
   })
 
-return withNextIntl(withMDX(nextConfig))
+  return withNextIntl(withMDX(nextConfig))
 }
