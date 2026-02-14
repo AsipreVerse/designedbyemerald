@@ -13,7 +13,7 @@ import { RootLayout } from '@/components/RootLayout'
 
 // Types for params
 type Props = {
-    params: { locale: string }
+    params: Promise<{ locale: string }>
 }
 
 function Hero() {
@@ -191,7 +191,8 @@ export const metadata: Metadata = {
         'Designed by Emerald is an interior design studio focused on creating elegant, functional and timeless spaces in Dubai.',
 }
 
-export default async function Home({ params: { locale } }: Props) {
+export default async function Home({ params }: Props) {
+    const { locale } = await params
     setRequestLocale(locale)
     let caseStudies = (await loadCaseStudies()).slice(0, 3)
 
