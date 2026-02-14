@@ -1,13 +1,7 @@
 import nextMDX from '@next/mdx'
-import { recmaImportImages } from 'recma-import-images'
-import remarkGfm from 'remark-gfm'
-import { remarkRehypeWrap } from 'remark-rehype-wrap'
-import rehypeUnwrapImages from 'rehype-unwrap-images'
 import createNextIntlPlugin from 'next-intl/plugin';
 
-// Import necessary types if we were in TS, but this is MJS.
-
-/** @type {import('next').NextConfig} */
+// Standard Next.js config
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   images: {
@@ -20,9 +14,11 @@ const nextConfig = {
 
 const withNextIntl = createNextIntlPlugin();
 
-let withMDX = nextMDX({
-  extension: /\.mdx$/,
-})
+export default async function config() {
+  let withMDX = nextMDX({
+    extension: /\.mdx$/,
+    // No options (plugins) passed to avoid Next.js 16 serialization issues
+  })
 
-return withNextIntl(withMDX(nextConfig))
+  return withNextIntl(withMDX(nextConfig))
 }
