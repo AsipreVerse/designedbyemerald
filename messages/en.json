@@ -1,0 +1,39 @@
+{
+    "Navigation": {
+        "work": "Portfolio",
+        "services": "Services",
+        "about": "About Us",
+        "contact": "Contact"
+    },
+    "Hero": {
+        "title": "Refined Interiors for Modern Living",
+        "subtitle": "Designed by Emerald"
+    },
+    "Intro": {
+        "heading": "The Essence of Luxury",
+        "p1": "We believe that luxury is not just about aesthetics, but about how a space makes you feel. At Designed by Emerald, we curate environments that are as functional as they are beautiful.",
+        "p2": "From high-end residential villas to exclusive commercial spaces, our approach is rooted in a deep understanding of our clients' aspirations, translated into timeless designs."
+    },
+    "Services": {
+        "heading": "Our Expertise",
+        "interiorDesign": "Interior Design",
+        "fitOut": "Turnkey Fit-Out",
+        "consultancy": "Design Consultancy",
+        "furniture": "Bespoke Furniture"
+    },
+    "Footer": {
+        "office": "Our Office",
+        "connect": "Connect",
+        "rights": "All rights reserved.",
+        "privacy": "Privacy Policy",
+        "developedBy": "Developed by"
+    },
+    "Contact": {
+        "title": "Get in Touch",
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone Number",
+        "message": "Message",
+        "submit": "Send Message"
+    }
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel&amp;family=Prata&amp;display=swap');
+    </style>
+  </defs>
+  <!-- DESIGNED BY - Cinzel (Roman inscription style) -->
+  <text
+    x="200" y="85"
+    text-anchor="middle"
+    font-family="'Cinzel', serif"
+    font-size="13"
+    font-weight="400"
+    letter-spacing="0.4em"
+    fill="currentColor"
+  >DESIGNED BY</text>
+
+  <!-- EMERALD - Prata (Elegant Didone) -->
+  <text
+    x="200" y="130"
+    text-anchor="middle"
+    font-family="'Prata', serif"
+    font-size="54"
+    font-weight="400"
+    letter-spacing="0.05em"
+    fill="currentColor"
+  >EMERALD</text>
+</svg>
