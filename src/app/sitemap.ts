@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { loadCaseStudies } from '@/lib/mdx'
 
-const BASE_URL = 'https://designedbyemerald.com'
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://designedbyemerald.com'
 const LOCALES = ['en', 'ar'] as const
 
 const STATIC_ROUTES = [
