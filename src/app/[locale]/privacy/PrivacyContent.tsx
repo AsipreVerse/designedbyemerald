@@ -17,7 +17,7 @@ export function PrivacyContent() {
 
             <Container className="mt-16 sm:mt-20">
                 <FadeIn>
-                    <div className="prose prose-neutral mx-auto max-w-3xl prose-headings:font-heading prose-headings:tracking-wide prose-h2:text-lg prose-h2:uppercase prose-h2:tracking-[0.15em]">
+                    <div className="prose mx-auto max-w-3xl prose-headings:font-heading prose-headings:text-marble-deep prose-p:text-neutral-700 prose-li:text-neutral-700 prose-strong:text-marble-deep prose-a:text-emerald-700 prose-a:underline hover:prose-a:text-emerald-900 prose-th:text-marble-deep prose-td:text-neutral-700 prose-h2:text-lg">
                         <p className="text-sm text-warm-grey">
                             {t('lastUpdated')}
                         </p>
@@ -102,13 +102,13 @@ export function PrivacyContent() {
                         <p>{t('contactUsBody')}</p>
                         <ul>
                             <li>
-                                Email:{' '}
+                                {t('contactEmail')}:{' '}
                                 <a href="mailto:info@designedbyemerald.com">
                                     info@designedbyemerald.com
                                 </a>
                             </li>
                             <li>
-                                WhatsApp:{' '}
+                                {t('contactWhatsApp')}:{' '}
                                 <a
                                     href="https://wa.me/971582495005"
                                     target="_blank"
@@ -117,7 +117,10 @@ export function PrivacyContent() {
                                     +971 58 249 5005
                                 </a>
                             </li>
-                            <li>Address: The Meydan Hotel, Dubai, UAE</li>
+                            <li>
+                                {t('contactAddress')}:{' '}
+                                {t('contactAddressValue')}
+                            </li>
                         </ul>
 
                         <h2>{t('changes')}</h2>

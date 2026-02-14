@@ -1,6 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
+import { useLocale } from 'next-intl'
 
 import { Blockquote as BlockquoteBase } from '@/components/Blockquote'
 import { Border } from '@/components/Border'
@@ -76,9 +77,15 @@ export function TopTip({
     children: React.ReactNode
     className?: string
 }) {
+    const locale = useLocale()
+    const isAr = locale === 'ar'
+
     return (
-        <Border position="left" className={clsx('my-10 pl-8', className)}>
-            <p className="font-display text-sm font-bold tracking-widest text-neutral-950 uppercase">
+        <Border position="start" className={clsx('my-10 ps-8', className)}>
+            <p className={clsx(
+                'font-display text-sm font-bold text-neutral-950',
+                !isAr && 'tracking-widest uppercase',
+            )}>
                 Top tip
             </p>
             <div className="mt-4">{children}</div>

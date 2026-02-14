@@ -54,7 +54,7 @@ function BlockquoteWithoutImage({
   className?: string
 }) {
   return (
-    <Border position="left" className={clsx('pl-8', className)}>
+    <Border position="start" className={clsx('ps-8', className)}>
       <figure className="text-sm">
         <blockquote className="text-neutral-600 *:relative [&>:first-child]:before:absolute [&>:first-child]:before:right-full [&>:first-child]:before:content-['“'] [&>:last-child]:after:content-['”']">
           {typeof children === 'string' ? <p>{children}</p> : children}
@@ -71,8 +71,8 @@ export function Blockquote(
   props:
     | React.ComponentPropsWithoutRef<typeof BlockquoteWithImage>
     | (React.ComponentPropsWithoutRef<typeof BlockquoteWithoutImage> & {
-        image?: undefined
-      }),
+      image?: undefined
+    }),
 ) {
   if (props.image) {
     return <BlockquoteWithImage {...props} />

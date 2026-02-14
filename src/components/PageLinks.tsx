@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import clsx from 'clsx'
 
 import { Border } from '@/components/Border'
@@ -31,8 +31,8 @@ function PageLink({ page }: { page: Page }) {
   return (
     <article key={page.href}>
       <Border
-        position="left"
-        className="relative flex flex-col items-start pl-8"
+        position="start"
+        className="relative flex flex-col items-start ps-8"
       >
         <h3 className="mt-6 text-base font-semibold text-neutral-950">
           {page.title}

@@ -1,9 +1,27 @@
 'use client'
 
 import { useState, type FormEvent } from 'react'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
+import { useLocale, useTranslations } from 'next-intl'
 
 export function ContactForm() {
+    const locale = useLocale()
+    const t = useTranslations('ContactForm')
+
+    // Arabic: uppercase and letter-spacing break ligatures
+    const isAr = locale === 'ar'
+    const headingClass = isAr
+        ? 'font-heading text-sm font-normal text-marble-emerald'
+        : 'font-heading text-sm font-normal uppercase tracking-[0.2em] text-marble-emerald'
+    const labelClass = isAr
+        ? 'block text-xs font-medium text-neutral-500'
+        : 'block text-xs font-medium uppercase tracking-wider text-neutral-500'
+    const btnPrimaryClass = isAr
+        ? 'bg-marble-deep px-6 py-3 text-xs font-medium text-cream-50 transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-40'
+        : 'bg-marble-deep px-6 py-3 text-xs font-medium uppercase tracking-[0.15em] text-cream-50 transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-40'
+    const btnSecondaryClass = isAr
+        ? 'border border-marble-deep px-6 py-3 text-xs font-medium text-marble-deep transition hover:bg-marble-deep hover:text-cream-50 disabled:cursor-not-allowed disabled:opacity-40'
+        : 'border border-marble-deep px-6 py-3 text-xs font-medium uppercase tracking-[0.15em] text-marble-deep transition hover:bg-marble-deep hover:text-cream-50 disabled:cursor-not-allowed disabled:opacity-40'
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -36,24 +54,24 @@ export function ContactForm() {
         const text = encodeURIComponent(
             `*New Enquiry*\n\nName: ${name}\nEmail: ${email}${phone ? `\nPhone: ${phone}` : ''}\n\n${message}`
         )
-        window.open(`https://wa.me/971582495005?text=${text}`, '_blank')
+        window.open(`https://wa.me/971582495005?text=${text}`, '_blank', 'noopener,noreferrer')
     }
 
     const isValid = name.trim() && email.trim() && message.trim() && consent
 
     return (
-        <form className="mt-12 border-t border-neutral-200 pt-10" onSubmit={handleEmail}>
-            <h3 className="font-heading text-sm font-normal uppercase tracking-[0.2em] text-marble-emerald">
-                Send an Enquiry
+        <form className="mt-8" onSubmit={handleEmail}>
+            <h3 className={headingClass}>
+                {t('heading')}
             </h3>
             <p className="mt-2 text-sm text-neutral-500">
-                Complete the form below and choose how you would like to send it.
+                {t('description')}
             </p>
 
             <div className="mt-8 space-y-5">
                 <div>
-                    <label htmlFor="contact-name" className="block text-xs font-medium uppercase tracking-wider text-neutral-500">
-                        Name *
+                    <label htmlFor="contact-name" className={labelClass}>
+                        {t('nameLabel')} *
                     </label>
                     <input
                         id="contact-name"
@@ -62,13 +80,13 @@ export function ContactForm() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="mt-1.5 w-full border-b border-neutral-300 bg-transparent py-2.5 text-sm text-neutral-950 outline-none transition focus:border-marble-emerald"
-                        placeholder="Your full name"
+                        placeholder={t('namePlaceholder')}
                     />
                 </div>
 
                 <div>
-                    <label htmlFor="contact-email" className="block text-xs font-medium uppercase tracking-wider text-neutral-500">
-                        Email *
+                    <label htmlFor="contact-email" className={labelClass}>
+                        {t('emailLabel')} *
                     </label>
                     <input
                         id="contact-email"
@@ -77,13 +95,13 @@ export function ContactForm() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="mt-1.5 w-full border-b border-neutral-300 bg-transparent py-2.5 text-sm text-neutral-950 outline-none transition focus:border-marble-emerald"
-                        placeholder="you@example.com"
+                        placeholder={t('emailPlaceholder')}
                     />
                 </div>
 
                 <div>
-                    <label htmlFor="contact-phone" className="block text-xs font-medium uppercase tracking-wider text-neutral-500">
-                        Phone (optional)
+                    <label htmlFor="contact-phone" className={labelClass}>
+                        {t('phoneLabel')}
                     </label>
                     <input
                         id="contact-phone"
@@ -91,13 +109,13 @@ export function ContactForm() {
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         className="mt-1.5 w-full border-b border-neutral-300 bg-transparent py-2.5 text-sm text-neutral-950 outline-none transition focus:border-marble-emerald"
-                        placeholder="+971 ..."
+                        placeholder={t('phonePlaceholder')}
                     />
                 </div>
 
                 <div>
-                    <label htmlFor="contact-message" className="block text-xs font-medium uppercase tracking-wider text-neutral-500">
-                        Message *
+                    <label htmlFor="contact-message" className={labelClass}>
+                        {t('messageLabel')} *
                     </label>
                     <textarea
                         id="contact-message"
@@ -106,7 +124,7 @@ export function ContactForm() {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         className="mt-1.5 w-full resize-none border-b border-neutral-300 bg-transparent py-2.5 text-sm text-neutral-950 outline-none transition focus:border-marble-emerald"
-                        placeholder="Tell us about your project..."
+                        placeholder={t('messagePlaceholder')}
                     />
                 </div>
 
@@ -119,9 +137,9 @@ export function ContactForm() {
                         className="mt-0.5 h-4 w-4 shrink-0 accent-marble-emerald"
                     />
                     <span className="text-xs leading-relaxed text-neutral-500">
-                        I consent to my information being sent to Designed by Emerald for the purpose of responding to my enquiry.{' '}
+                        {t('consent')}{' '}
                         <Link href="/privacy" className="underline underline-offset-2 text-marble-emerald hover:text-neutral-950 transition">
-                            Privacy Policy
+                            {t('privacy')}
                         </Link>
                     </span>
                 </label>
@@ -132,17 +150,17 @@ export function ContactForm() {
                 <button
                     type="submit"
                     disabled={!isValid}
-                    className="bg-marble-deep px-6 py-3 text-xs font-medium uppercase tracking-[0.15em] text-cream-50 transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-40"
+                    className={btnPrimaryClass}
                 >
-                    Send via Email
+                    {t('sendEmail')}
                 </button>
                 <button
                     type="button"
                     disabled={!isValid}
                     onClick={handleWhatsApp}
-                    className="border border-marble-deep px-6 py-3 text-xs font-medium uppercase tracking-[0.15em] text-marble-deep transition hover:bg-marble-deep hover:text-cream-50 disabled:cursor-not-allowed disabled:opacity-40"
+                    className={btnSecondaryClass}
                 >
-                    Send via WhatsApp
+                    {t('sendWhatsApp')}
                 </button>
             </div>
         </form>

@@ -22,7 +22,7 @@ function Vision() {
     return (
         <Container className="mt-24 sm:mt-32 lg:mt-40">
             <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-                <div className="lg:pl-20">
+                <div className="lg:ps-20">
                     <div className="max-w-xs px-2.5 lg:max-w-none">
                         <Image
                             src={imageVision}
@@ -55,7 +55,7 @@ function Mission() {
     return (
         <Container className="mt-24 sm:mt-32 lg:mt-40">
             <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-                <div className="lg:pr-20">
+                <div className="lg:pe-20">
                     <div className="max-w-xs px-2.5 lg:max-w-none">
                         <Image
                             src={imageMission}

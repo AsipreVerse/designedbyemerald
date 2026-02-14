@@ -172,3 +172,42 @@ html[dir="rtl"] .force-ltr {
   direction: ltr;
   unicode-bidi: embed;
 }
+
+/* Arabic has no italic or case system — these break readability */
+html[dir="rtl"] .italic {
+  font-style: normal !important;
+}
+
+html[dir="rtl"] .uppercase {
+  text-transform: none !important;
+}
+
+/* ── Brand-Premium Text Selection ── */
+::selection {
+  background-color: #B08D57;
+  color: #ffffff;
+}
+
+/* ── Thin Branded Scrollbar (WebKit/Blink) ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(176, 141, 87, 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(176, 141, 87, 0.7);
+}
+
+/* Firefox thin scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(176, 141, 87, 0.4) transparent;
+}

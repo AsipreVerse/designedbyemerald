@@ -1,7 +1,8 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { useEffect } from 'react'
+import { Link } from '@/i18n/routing'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
@@ -15,6 +16,7 @@ export default function Error({
     reset: () => void
 }) {
     const t = useTranslations('Error')
+    const locale = useLocale()
 
     useEffect(() => {
         // Log the error to an error reporting service
@@ -32,9 +34,9 @@ export default function Error({
                 </p>
                 <div className="mt-8 flex gap-4">
                     <Button onClick={() => reset()}>{t('retry')}</Button>
-                    <Button href={`/${typeof window !== 'undefined' && window.location.pathname.startsWith('/ar') ? 'ar' : 'en'}`} invert>
+                    <Link href="/" className="inline-flex items-center gap-2 rounded-full bg-marble-deep px-6 py-3 text-xs font-medium text-cream-50 transition hover:bg-emerald-800">
                         {t('backHome')}
-                    </Button>
+                    </Link>
                 </div>
             </FadeIn>
         </Container>

@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { useLocale } from 'next-intl'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
@@ -20,6 +21,9 @@ export function SectionIntro({
   smaller?: boolean
   invert?: boolean
 }) {
+  const locale = useLocale()
+  const isAr = locale === 'ar'
+
   return (
     <Container {...props}>
       <FadeIn className="max-w-2xl">
@@ -28,7 +32,8 @@ export function SectionIntro({
             <>
               <span
                 className={clsx(
-                  'mb-6 block font-heading text-sm font-normal uppercase tracking-[0.2em]',
+                  'mb-6 block font-heading text-sm font-normal',
+                  !isAr && 'uppercase tracking-[0.2em]',
                   invert ? 'text-white' : 'text-neutral-950',
                 )}
               >

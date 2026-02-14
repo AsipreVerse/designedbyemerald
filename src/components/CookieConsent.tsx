@@ -1,11 +1,19 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/routing'
+import { useLocale, useTranslations } from 'next-intl'
 
 export function CookieConsent() {
+    const locale = useLocale()
     const t = useTranslations('CookieConsent')
+    const isAr = locale === 'ar'
+    const btnAcceptClass = isAr
+        ? 'bg-gold px-5 py-2 text-xs font-medium text-marble-deep transition hover:bg-gold-light'
+        : 'bg-gold px-5 py-2 text-xs font-medium uppercase tracking-[0.15em] text-marble-deep transition hover:bg-gold-light'
+    const btnDeclineClass = isAr
+        ? 'px-5 py-2 text-xs font-medium text-cream-50/60 transition hover:text-cream-50'
+        : 'px-5 py-2 text-xs font-medium uppercase tracking-[0.15em] text-cream-50/60 transition hover:text-cream-50'
     const [visible, setVisible] = useState(false)
 
     useEffect(() => {
@@ -58,13 +66,13 @@ export function CookieConsent() {
                     <div className="mt-4 flex items-center gap-3">
                         <button
                             onClick={handleAccept}
-                            className="bg-gold px-5 py-2 text-xs font-medium uppercase tracking-[0.15em] text-marble-deep transition hover:bg-gold-light"
+                            className={btnAcceptClass}
                         >
                             {t('accept')}
                         </button>
                         <button
                             onClick={handleDecline}
-                            className="px-5 py-2 text-xs font-medium uppercase tracking-[0.15em] text-cream-50/60 transition hover:text-cream-50"
+                            className={btnDeclineClass}
                         >
                             {t('decline')}
                         </button>

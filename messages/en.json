@@ -58,10 +58,27 @@
         "emailLabel": "Email",
         "emailNote": "For detailed briefs and proposals",
         "instagramLabel": "Instagram",
-        "instagramNote": "Follow our latest projects",
+        "instagramNote": "Follow our latest projects.",
+        "backLink": "Back to Home",
         "studioLabel": "Studio",
         "studioAddress1": "The Meydan Hotel",
         "studioAddress2": "Dubai, United Arab Emirates"
+    },
+    "ContactForm": {
+        "heading": "Send an Enquiry",
+        "description": "Complete the form below and choose how you would like to send it.",
+        "nameLabel": "Name",
+        "namePlaceholder": "Your full name",
+        "emailLabel": "Email",
+        "emailPlaceholder": "you@example.com",
+        "phoneLabel": "Phone (optional)",
+        "phonePlaceholder": "+971 ...",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Tell us about your project...",
+        "consent": "I consent to my information being sent to Designed by Emerald for the purpose of responding to my enquiry.",
+        "privacy": "Privacy Policy",
+        "sendEmail": "Send via Email",
+        "sendWhatsApp": "Send via WhatsApp"
     },
     "Footer": {
         "taglineLine1": "Where Precision",
@@ -81,7 +98,11 @@
         "heading": "Spaces designed with purpose and precision.",
         "description": "Elegant, functional and timeless spaces — from private residences to commercial environments. Every brief receives the same attention to detail and respect for materiality.",
         "projects": "Projects",
-        "readCaseStudy": "View project"
+        "readCaseStudy": "View project",
+        "caseStudyEyebrow": "Case Study",
+        "clientLabel": "Client",
+        "yearLabel": "Year",
+        "serviceLabel": "Service"
     },
     "CookieConsent": {
         "content": "This website uses analytics cookies to improve your experience. You may accept or decline.",
@@ -280,6 +301,10 @@
         "transfersBody": "Vercel Analytics data may be processed outside the UAE. Vercel maintains appropriate data protection standards in accordance with their privacy policy and applicable regulations.",
         "contactUs": "Contact Us",
         "contactUsBody": "For any privacy-related enquiries or to exercise your rights, please contact us:",
+        "contactEmail": "Email",
+        "contactWhatsApp": "WhatsApp",
+        "contactAddress": "Address",
+        "contactAddressValue": "The Meydan Hotel, Dubai, UAE",
         "changes": "Changes to This Policy",
         "changesBody": "We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date."
     },

@@ -8,8 +8,7 @@ import {
   useRef,
   useState,
 } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { Link, usePathname } from '@/i18n/routing'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 
@@ -17,7 +16,7 @@ import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { Logo, Logomark } from '@/components/Logo'
 import { CookieConsent } from '@/components/CookieConsent'
-import { WhatsAppButton } from '@/components/WhatsAppButton'
+
 import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 
 const RootLayoutContext = createContext<{
@@ -69,7 +68,7 @@ function Header({
           onMouseLeave={() => setLogoHovered(false)}
         >
           <Logomark
-            className="h-10 sm:hidden"
+            className="h-14 sm:hidden"
             invert={invert}
             filled={logoHovered}
           />
@@ -95,7 +94,7 @@ function Header({
           >
             <Icon
               className={clsx(
-                'h-6 w-6',
+                'h-6 w-6 sm:h-7 sm:w-7',
                 invert
                   ? 'fill-cream-50 group-hover:fill-gold'
                   : 'fill-cream-50 group-hover:fill-gold',
@@ -128,10 +127,10 @@ function NavigationItem({
   return (
     <Link
       href={href}
-      className="group relative isolate -mx-6 bg-marble-deep px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-cream-50/10 sm:even:pl-16"
+      className="group relative isolate -mx-6 bg-marble-deep px-6 py-4 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pe-16 sm:even:mt-0 sm:even:border-s sm:even:border-cream-50/10 sm:even:ps-16"
     >
       {children}
-      <span className="absolute inset-y-0 -z-10 w-screen bg-marble-forest opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
+      <span className="absolute inset-y-0 -z-10 w-screen bg-marble-forest opacity-0 transition group-odd:end-0 group-even:start-0 group-hover:opacity-100" />
     </Link>
   )
 }
@@ -140,7 +139,7 @@ function Navigation() {
   const t = useTranslations('Navigation')
 
   return (
-    <nav className="mt-px font-display text-5xl font-medium tracking-tight text-cream-50">
+    <nav className="mt-px font-display text-3xl sm:text-5xl font-medium tracking-tight text-cream-50">
       <NavigationRow>
         <NavigationItem href="/services">{t('services')}</NavigationItem>
         <NavigationItem href="/about">{t('about')}</NavigationItem>
@@ -158,22 +157,16 @@ function NavOverlayContact() {
   return (
     <div className="relative bg-marble-deep before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-cream-50/10">
       <Container>
-        <div className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
+        <div className="grid grid-cols-1 gap-y-6 pt-6 pb-12 sm:grid-cols-2 sm:pt-16">
           <div>
-            <h2 className="font-heading text-xs font-normal uppercase tracking-[0.25em] text-gold">
-              {t('office')}
-            </h2>
-            <address className="mt-4 text-sm not-italic text-cream-50/70">
+            <address className="text-sm not-italic text-cream-50/70">
               <strong className="text-cream-50">Dubai</strong>
               <br />
               {t('location')}
             </address>
           </div>
-          <div className="sm:border-l sm:border-cream-50/10 sm:pl-16">
-            <h2 className="font-heading text-xs font-normal uppercase tracking-[0.25em] text-gold">
-              {t('connect')}
-            </h2>
-            <ul className="mt-4 space-y-2 text-sm text-cream-50/70">
+          <div className="sm:border-s sm:border-cream-50/10 sm:ps-16">
+            <ul className="space-y-2 text-sm text-cream-50/70">
               <li>
                 <a
                   href="https://wa.me/971582495005"
@@ -242,7 +235,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
       <header>
         {/* Main navbar — marble texture background */}
         <div
-          className="absolute top-0 right-0 left-0 z-40 pt-14"
+          className="absolute top-0 right-0 left-0 z-40 pt-12 sm:pt-14"
           aria-hidden={expanded ? 'true' : undefined}
           inert={expanded ? true : undefined}
           style={{
@@ -251,7 +244,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
             backgroundPosition: 'center top',
           }}
         >
-          <div className="relative bg-marble-deep/60 pb-4 backdrop-blur-sm">
+          <div className="relative bg-marble-deep/60 pb-3 sm:pb-4 backdrop-blur-sm">
             <Header
               panelId={panelId}
               icon={MenuIcon}
@@ -307,7 +300,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* Global overlay components */}
-      <WhatsAppButton />
+
       <CookieConsent />
     </>
   )

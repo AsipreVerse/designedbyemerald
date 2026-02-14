@@ -1,9 +1,18 @@
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 
 export function ContactSection() {
+  const locale = useLocale()
   const t = useTranslations('Contact')
+
+  const isAr = locale === 'ar'
+  const btnPrimaryClass = isAr
+    ? 'inline-flex items-center gap-2 bg-gold px-8 py-3 text-xs font-medium text-marble-deep transition hover:bg-gold-light'
+    : 'inline-flex items-center gap-2 bg-gold px-8 py-3 text-xs font-medium uppercase tracking-[0.15em] text-marble-deep transition hover:bg-gold-light'
+  const btnSecondaryClass = isAr
+    ? 'inline-flex items-center gap-2 border border-cream-50/30 px-8 py-3 text-xs font-medium text-cream-50 transition hover:border-cream-50 hover:bg-cream-50/10'
+    : 'inline-flex items-center gap-2 border border-cream-50/30 px-8 py-3 text-xs font-medium uppercase tracking-[0.15em] text-cream-50 transition hover:border-cream-50 hover:bg-cream-50/10'
 
   return (
     <Container className="mt-16 sm:mt-24 lg:mt-32">
@@ -29,7 +38,7 @@ export function ContactSection() {
                   href="https://wa.me/971582495005"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gold px-8 py-3 text-xs font-medium uppercase tracking-[0.15em] text-marble-deep transition hover:bg-gold-light"
+                  className={btnPrimaryClass}
                 >
                   <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
@@ -39,7 +48,7 @@ export function ContactSection() {
                 </a>
                 <a
                   href="mailto:info@designedbyemerald.com"
-                  className="inline-flex items-center gap-2 border border-cream-50/30 px-8 py-3 text-xs font-medium uppercase tracking-[0.15em] text-cream-50 transition hover:border-cream-50 hover:bg-cream-50/10"
+                  className={btnSecondaryClass}
                 >
                   {t('email')}
                 </a>

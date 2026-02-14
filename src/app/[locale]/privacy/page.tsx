@@ -1,6 +1,7 @@
 import { type Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
+import { RootLayout } from '@/components/RootLayout'
 import { PrivacyContent } from './PrivacyContent'
 
 export async function generateMetadata({
@@ -24,5 +25,9 @@ export default async function PrivacyPage({
     const { locale } = await params
     setRequestLocale(locale)
 
-    return <PrivacyContent />
+    return (
+        <RootLayout>
+            <PrivacyContent />
+        </RootLayout>
+    )
 }

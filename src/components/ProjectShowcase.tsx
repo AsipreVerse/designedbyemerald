@@ -2,8 +2,9 @@
 
 import { useState, useCallback } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLocale } from 'next-intl'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
@@ -183,10 +184,14 @@ function ImageCarousel({
 function ProjectRowSingle({
     caseStudy,
     projectLabel,
+    isFirst = false,
 }: {
     caseStudy: MDXEntry<CaseStudy>
     projectLabel: string
+    isFirst?: boolean
 }) {
+    const locale = useLocale()
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 32 }}
@@ -201,8 +206,9 @@ function ProjectRowSingle({
                     {...caseStudy.image}
                     alt={caseStudy.title}
                     fill
+                    priority={isFirst}
                     className="object-cover transition duration-700 group-hover:scale-[1.02]"
-                    sizes="100vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                 />
                 {/* Bottom gradient for text legibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/30 to-transparent" />
@@ -213,7 +219,10 @@ function ProjectRowSingle({
                 <div className="max-w-xl">
                     <div className="flex items-center gap-3">
                         <span className="h-px w-8 bg-gold" />
-                        <p className="font-heading text-xs font-normal uppercase tracking-[0.3em] text-gold">
+                        <p className={clsx(
+                            'font-heading text-xs font-normal text-gold',
+                            locale !== 'ar' && 'uppercase tracking-[0.3em]',
+                        )}>
                             {caseStudy.service}
                         </p>
                     </div>
@@ -256,6 +265,7 @@ function ProjectRowCarousel({
     projectLabel: string
 }) {
     const isEven = index % 2 === 0
+    const locale = useLocale()
 
     // Combine hero + gallery into single image array
     const allImages = [caseStudy.image, ...(caseStudy.gallery || [])]
@@ -277,7 +287,10 @@ function ProjectRowCarousel({
                     {/* Service Tag */}
                     <div className="flex items-center gap-3">
                         <span className="h-px w-8 bg-gold" />
-                        <p className="font-heading text-xs font-normal uppercase tracking-[0.3em] text-gold">
+                        <p className={clsx(
+                            'font-heading text-xs font-normal text-gold',
+                            locale !== 'ar' && 'uppercase tracking-[0.3em]',
+                        )}>
                             {caseStudy.service}
                         </p>
                     </div>
@@ -345,6 +358,7 @@ function ProjectRow({
             <ProjectRowSingle
                 caseStudy={caseStudy}
                 projectLabel={projectLabel}
+                isFirst={index === 0}
             />
         )
     }

@@ -1,7 +1,7 @@
 import { type Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import { MarbleStrip } from '@/components/MarbleStrip'
+import { RootLayout } from '@/components/RootLayout'
 import { ContactContent } from './ContactContent'
 
 export async function generateMetadata({
@@ -26,9 +26,8 @@ export default async function Contact({
   setRequestLocale(locale)
 
   return (
-    <>
+    <RootLayout>
       <ContactContent />
-      <MarbleStrip className="mt-24 sm:mt-32" />
-    </>
+    </RootLayout>
   )
 }

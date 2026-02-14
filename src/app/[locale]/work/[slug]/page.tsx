@@ -1,9 +1,7 @@
 import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import fs from 'fs'
 import path from 'path'
 import { MDXRemote } from 'next-mdx-remote/rsc'
@@ -48,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     return {
-        title: `${caseStudy.title} - Designed by Emerald`,
+        title: caseStudy.title,
         description: caseStudy.description,
     }
 }
@@ -64,11 +62,13 @@ export default async function CaseStudyPage({ params }: Props) {
         notFound()
     }
 
+    const t = await getTranslations({ locale, namespace: 'Work' })
+
     return (
         <RootLayout>
             <article className="mt-24 sm:mt-32 lg:mt-40">
                 <header>
-                    <PageIntro eyebrow={locale === 'ar' ? 'دراسة حالة' : 'Case Study'} title={caseStudy.title} centered>
+                    <PageIntro eyebrow={t('caseStudyEyebrow')} title={caseStudy.title} centered>
                         <p>{caseStudy.description}</p>
                     </PageIntro>
 
@@ -77,20 +77,20 @@ export default async function CaseStudyPage({ params }: Props) {
                             <Container>
                                 <div className="mx-auto max-w-5xl">
                                     <dl className="-mx-6 grid grid-cols-1 text-sm text-neutral-950 sm:mx-0 sm:grid-cols-3">
-                                        <div className="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-t-0 sm:border-l sm:first:border-l-0">
-                                            <dt className="font-semibold">{locale === 'ar' ? 'العميل' : 'Client'}</dt>
+                                        <div className="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-t-0 sm:border-s sm:first:border-s-0">
+                                            <dt className="font-semibold">{t('clientLabel')}</dt>
                                             <dd>{caseStudy.client}</dd>
                                         </div>
-                                        <div className="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-t-0 sm:border-l sm:first:border-l-0">
-                                            <dt className="font-semibold">{locale === 'ar' ? 'السنة' : 'Year'}</dt>
+                                        <div className="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-t-0 sm:border-s sm:first:border-s-0">
+                                            <dt className="font-semibold">{t('yearLabel')}</dt>
                                             <dd>
                                                 <time dateTime={caseStudy.date.split('-')[0]}>
                                                     {caseStudy.date.split('-')[0]}
                                                 </time>
                                             </dd>
                                         </div>
-                                        <div className="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-t-0 sm:border-l sm:first:border-l-0">
-                                            <dt className="font-semibold">{locale === 'ar' ? 'الخدمة' : 'Service'}</dt>
+                                        <div className="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-t-0 sm:border-s sm:first:border-s-0">
+                                            <dt className="font-semibold">{t('serviceLabel')}</dt>
                                             <dd>{caseStudy.service}</dd>
                                         </div>
                                     </dl>

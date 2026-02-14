@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { useLocale } from 'next-intl'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
@@ -14,13 +15,19 @@ export function PageIntro({
   children: React.ReactNode
   centered?: boolean
 }) {
+  const locale = useLocale()
+  const isAr = locale === 'ar'
+
   return (
     <Container
       className={clsx('mt-24 sm:mt-32 lg:mt-40', centered && 'text-center')}
     >
       <FadeIn>
         <h1>
-          <span className="block font-heading text-sm font-normal uppercase tracking-[0.2em] text-neutral-950">
+          <span className={clsx(
+            'block font-heading text-sm font-normal text-neutral-950',
+            !isAr && 'uppercase tracking-[0.2em]',
+          )}>
             {eyebrow}
           </span>
           <span className="sr-only"> - </span>

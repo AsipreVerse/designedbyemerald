@@ -1,14 +1,20 @@
-import Link from 'next/link'
-import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/routing'
+import { useLocale, useTranslations } from 'next-intl'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { Logo } from '@/components/Logo'
 
 export function Footer() {
+  const locale = useLocale()
   const t = useTranslations('Footer')
   const tNav = useTranslations('Navigation')
   const tContact = useTranslations('Contact')
+
+  // Arabic: uppercase and wide letter-spacing break ligatures
+  const headingClass = locale === 'ar'
+    ? 'font-heading text-xs font-normal text-gold'
+    : 'font-heading text-xs font-normal uppercase tracking-[0.25em] text-gold'
 
   return (
     <footer
@@ -39,7 +45,7 @@ export function Footer() {
               {/* Column 2: Navigation */}
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <h3 className="font-heading text-xs font-normal uppercase tracking-[0.25em] text-gold">
+                  <h3 className={headingClass}>
                     {t('studio')}
                   </h3>
                   <ul role="list" className="mt-4 space-y-3 text-sm">
@@ -70,7 +76,7 @@ export function Footer() {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="font-heading text-xs font-normal uppercase tracking-[0.25em] text-gold">
+                  <h3 className={headingClass}>
                     {t('legal')}
                   </h3>
                   <ul role="list" className="mt-4 space-y-3 text-sm">
@@ -88,7 +94,7 @@ export function Footer() {
 
               {/* Column 3: Contact */}
               <div>
-                <h3 className="font-heading text-xs font-normal uppercase tracking-[0.25em] text-gold">
+                <h3 className={headingClass}>
                   {tContact('title')}
                 </h3>
                 <ul role="list" className="mt-4 space-y-3 text-sm">

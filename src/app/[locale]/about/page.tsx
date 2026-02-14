@@ -40,7 +40,7 @@ export default async function About({
       <PageIntro eyebrow={t('eyebrow')} title={t('title')}>
         <p>{t('body')}</p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
-          <ul className="list-disc space-y-2 pl-6 text-neutral-600">
+          <ul className="list-disc space-y-2 ps-6 text-neutral-600">
             <li>{t('specialties.residential')}</li>
             <li>{t('specialties.villas')}</li>
             <li>{t('specialties.corporate')}</li>
