@@ -7,10 +7,10 @@
     "Hero": {
         "line1": "Where Precision",
         "line2": "Meets Beauty.",
-        "subtitle": "Interior design, fit-out, and engineering solutions — Dubai, UAE."
+        "subtitle": "Interior design and fit-out — Dubai, UAE."
     },
     "Intro": {
-        "heading": "Comprehensive solutions, from concept to completion.",
+        "heading": "Every detail, from concept to completion.",
         "p1": "Designed by Emerald is a comprehensive solutions provider specialising in interior design, engineering systems, and facility management. Based in the UAE, we deliver end-to-end solutions that integrate creative design with technical precision, ensuring every project reflects quality, innovation, and sustainability. From concept to completion, we are committed to transforming spaces into functional, aesthetically refined environments."
     },
     "Projects": {
@@ -105,8 +105,8 @@
         "metaTitle": "About Us",
         "metaDescription": "Designed by Emerald is an interior design studio focused on creating elegant, functional and timeless spaces.",
         "eyebrow": "About us",
-        "title": "Comprehensive solutions, from concept to completion",
-        "body": "Designed by Emerald is a comprehensive solutions provider specializing in interior design, MEP systems, and facility management. Based in the UAE, we deliver end-to-end solutions that integrate creative design with technical precision.",
+        "title": "Every detail, from concept to completion",
+        "body": "Designed by Emerald is a comprehensive solutions provider specialising in interior design, engineering systems, and facility management. Based in the UAE, we deliver end-to-end solutions that integrate creative design with technical precision.",
         "specialties": {
             "residential": "High-end residential interiors",
             "villas": "Villas and private homes",
@@ -120,7 +120,7 @@
         },
         "mission": {
             "heading": "Mission",
-            "body": "To deliver exceptional construction, fit-out, and building management solutions by combining <bold>technical expertise with creative innovation</bold>. We are dedicated to exceeding client expectations through precision, quality craftsmanship, and sustainable practices while creating environments that are functional, inspiring, and built to last."
+            "body": "To deliver exceptional construction, fit-out, and building management solutions by combining <bold>technical expertise with creative innovation</bold>. We are dedicated to exceeding client expectations through precision, quality craftsmanship, and sustainable practices while creating environments that are functional, inspiring, and built to last. We focus on practical and long-lasting design solutions, carefully considering space planning, materials, lighting, and detail — ensuring each project is tailored, practical, and enduring."
         },
         "innovation": {
             "heading": "Innovation",
@@ -146,8 +146,8 @@
         },
         "hse": {
             "eyebrow": "Our commitment",
-            "title": "Health, Safety, and Environmental Responsibility",
-            "body": "At DBE, we prioritize health, safety, and environmental responsibility in every project. Our strict safety protocols, regular risk assessments, and employee training ensure a secure working environment. We integrate green building practices, use sustainable materials, and focus on energy efficiency to minimize our environmental impact."
+            "title": "Health, Safety, and Environmental Commitment",
+            "body": "At DBE, we prioritise health, safety, and environmental responsibility in every project. Our strict safety protocols, regular risk assessments, and employee training ensure a secure working environment for all. We integrate green building practices, use sustainable materials, and focus on energy efficiency to minimise our environmental impact. By embracing eco-friendly solutions and maintaining high standards of health and safety, we create spaces that are both safe and sustainable for the future."
         }
     },
     "Services": {
@@ -288,7 +288,7 @@
             "default": "Designed by Emerald — Interior Design & Fit-Out | Dubai, UAE",
             "template": "%s — Designed by Emerald"
         },
-        "description": "Where Precision Meets Beauty. Interior design, fit-out, MEP, and facility management solutions in Dubai, UAE. From concept to completion.",
-        "keywords": "interior design Dubai, fit-out company Dubai, luxury interior design UAE, MEP services Dubai, villa interior design Dubai, commercial interior design Dubai, office fit-out Dubai, interior designer Dubai, Designed by Emerald"
+        "description": "Where Precision Meets Beauty. Interior design, fit-out, engineering, and facility management solutions in Dubai, UAE. From concept to completion.",
+        "keywords": "interior design Dubai, fit-out company Dubai, luxury interior design UAE, engineering services Dubai, villa interior design Dubai, commercial interior design Dubai, office fit-out Dubai, interior designer Dubai, Designed by Emerald"
     }
 }

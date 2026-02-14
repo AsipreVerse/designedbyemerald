@@ -32,7 +32,7 @@ export default function Error({
                 </p>
                 <div className="mt-8 flex gap-4">
                     <Button onClick={() => reset()}>{t('retry')}</Button>
-                    <Button href="/" invert>
+                    <Button href={`/${typeof window !== 'undefined' && window.location.pathname.startsWith('/ar') ? 'ar' : 'en'}`} invert>
                         {t('backHome')}
                     </Button>
                 </div>

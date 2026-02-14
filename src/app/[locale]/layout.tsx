@@ -79,8 +79,8 @@ export async function generateMetadata({
             images: [
                 {
                     url: '/og-image.jpg',
-                    width: 1080,
-                    height: 1080,
+                    width: 1200,
+                    height: 630,
                     alt: 'Designed by Emerald — Interior Design & Fit-Out | Dubai',
                     type: 'image/jpeg',
                 },
@@ -153,7 +153,7 @@ export default async function LocaleLayout({
                             logo: 'https://designedbyemerald.com/favicon.svg',
                             image: 'https://designedbyemerald.com/og-image.jpg',
                             description:
-                                'Interior design, fit-out, MEP, and facility management solutions in Dubai, UAE.',
+                                'Interior design, fit-out, engineering, and facility management solutions in Dubai, UAE.',
                             address: {
                                 '@type': 'PostalAddress',
                                 streetAddress: 'The Meydan Hotel',
@@ -169,7 +169,7 @@ export default async function LocaleLayout({
                             serviceType: [
                                 'Interior Design',
                                 'Fit-Out',
-                                'MEP Services',
+                                'Engineering Services',
                                 'Facility Management',
                             ],
                             sameAs: [
