@@ -20,19 +20,9 @@ const nextConfig = {
 
 const withNextIntl = createNextIntlPlugin();
 
-export default async function config() {
-  let withMDX = nextMDX({
-    extension: /\.mdx$/,
-    options: {
-      remarkPlugins: [
-        remarkGfm,
-      ],
-      rehypePlugins: [
-      ],
-      // We are omitting recmaPlugins and complex remark/rehype plugins 
-      // to avoid non-serializable options error in Next.js 16.
-    },
-  })
+let withMDX = nextMDX({
+  extension: /\.mdx$/,
+})
 
-  return withNextIntl(withMDX(nextConfig))
+return withNextIntl(withMDX(nextConfig))
 }
