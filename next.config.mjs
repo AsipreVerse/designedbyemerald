@@ -22,31 +22,6 @@ const nextConfig = {
   },
 }
 
-function remarkMDXLayout(source, metaName) {
-  let parser = Parser.extend(jsx())
-  let parseOptions = { ecmaVersion: 'latest', sourceType: 'module' }
-
-  return (tree) => {
-    let imp = `import _Layout from '${source}'`
-    let exp = `export default function Layout(props) {
-      return <_Layout {...props} ${metaName}={${metaName}} />
-    }`
-
-    tree.children.push(
-      {
-        type: 'mdxjsEsm',
-        value: imp,
-        data: { estree: parser.parse(imp, parseOptions) },
-      },
-      {
-        type: 'mdxjsEsm',
-        value: exp,
-        data: { estree: parser.parse(exp, parseOptions) },
-      },
-    )
-  }
-}
-
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin();
@@ -74,17 +49,6 @@ export default async function config() {
       ],
       remarkPlugins: [
         remarkGfm,
-        [
-          unifiedConditional,
-          [
-            new RegExp(`^${escapeStringRegexp(path.resolve('src/app/blog'))}`),
-            [[remarkMDXLayout, '@/app/blog/wrapper', 'article']],
-          ],
-          [
-            new RegExp(`^${escapeStringRegexp(path.resolve('src/app/work'))}`),
-            [[remarkMDXLayout, '@/app/work/wrapper', 'caseStudy']],
-          ],
-        ],
       ],
     },
   })
