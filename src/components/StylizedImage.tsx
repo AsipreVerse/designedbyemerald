@@ -17,7 +17,7 @@ export function StylizedImage({
     >
       <Image
         {...props}
-        alt=""
+        alt={props.alt ?? ''}
         className="h-full w-full object-cover transition duration-500 hover:scale-105"
       />
     </div>

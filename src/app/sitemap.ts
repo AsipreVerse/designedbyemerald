@@ -8,7 +8,6 @@ const STATIC_ROUTES = [
     '',
     '/about',
     '/services',
-    '/work',
     '/contact',
     '/privacy',
 ]

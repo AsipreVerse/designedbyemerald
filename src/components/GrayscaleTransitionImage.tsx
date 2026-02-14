@@ -10,7 +10,7 @@ export function GrayscaleTransitionImage(
   return (
     <div className="group relative">
       <Image
-        alt=""
+        alt={props.alt ?? ''}
         {...props}
         className={clsx(props.className)}
       />
