@@ -27,31 +27,22 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin();
 
 export default async function config() {
-  let highlighter = await shiki.getHighlighter({
-    theme: 'css-variables',
-  })
-
-  let withMDX = nextMDX({
-    extension: /\.mdx$/,
-    options: {
-      recmaPlugins: [recmaImportImages],
-      rehypePlugins: [
-        [rehypeShiki, { highlighter }],
-        rehypeUnwrapImages,
-        [
-          remarkRehypeWrap,
-          {
-            node: { type: 'mdxJsxFlowElement', name: 'Typography' },
-            start: ':root > :not(mdxJsxFlowElement)',
-            end: ':root > mdxJsxFlowElement',
-          },
-        ],
-      ],
-      remarkPlugins: [
-        remarkGfm,
-      ],
+  rehypePlugins: [
+    rehypeUnwrapImages,
+    [
+      remarkRehypeWrap,
+      {
+        node: { type: 'mdxJsxFlowElement', name: 'Typography' },
+        start: ':root > :not(mdxJsxFlowElement)',
+        end: ':root > mdxJsxFlowElement',
+      },
+    ],
+  ],
+    remarkPlugins: [
+      remarkGfm,
+    ],
     },
   })
 
-  return withNextIntl(withMDX(nextConfig))
+return withNextIntl(withMDX(nextConfig))
 }
