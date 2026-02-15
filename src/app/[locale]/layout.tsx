@@ -100,7 +100,7 @@ export async function generateMetadata({
             },
         },
         other: {
-            'theme-color': '#1a3d2e',
+            'theme-color': '#0a0a0a',
         },
     }
 }
@@ -136,7 +136,7 @@ export default async function LocaleLayout({
             dir={locale === 'ar' ? 'rtl' : 'ltr'}
             className={`h-full bg-neutral-950 text-base antialiased ${prata.variable} ${cinzel.variable} ${josefinSans.variable} ${cairo.variable} ${amiri.variable}`}
         >
-            <body className="flex min-h-dvh flex-col">
+            <body className="flex min-h-dvh flex-col bg-neutral-950">
                 <NextIntlClientProvider messages={messages}>
                     {children}
                     <ConsentAnalytics />
