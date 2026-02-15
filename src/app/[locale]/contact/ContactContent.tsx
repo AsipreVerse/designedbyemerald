@@ -9,7 +9,7 @@ import { FadeIn } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { ContactForm } from '@/components/ContactForm'
 
-import zenGardenImage from '@/images/pdf_raw/page-002-004.webp'
+import zenGardenImage from '@/images/pdf_raw/page-002-004.jpg'
 
 function ContactDetails() {
     const t = useTranslations('Contact')

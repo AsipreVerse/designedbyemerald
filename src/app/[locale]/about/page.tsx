@@ -9,8 +9,8 @@ import { GridList, GridListItem } from '@/components/GridList'
 import { PageIntro } from '@/components/PageIntro'
 import { SectionIntro } from '@/components/SectionIntro'
 import { RootLayout } from '@/components/RootLayout'
-import imageVision from '@/images/vision.webp'
-import imageMission from '@/images/mission.webp'
+import imageVision from '@/images/vision.jpg'
+import imageMission from '@/images/mission.jpg'
 import { AboutContent } from './AboutContent'
 
 export async function generateMetadata({

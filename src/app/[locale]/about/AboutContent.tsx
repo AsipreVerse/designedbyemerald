@@ -7,8 +7,8 @@ import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { GridList, GridListItem } from '@/components/GridList'
 import { SectionIntro } from '@/components/SectionIntro'
-import imageVision from '@/images/vision.webp'
-import imageMission from '@/images/mission.webp'
+import imageVision from '@/images/vision.jpg'
+import imageMission from '@/images/mission.jpg'
 
 const richTextComponents = {
     bold: (chunks: React.ReactNode) => (
