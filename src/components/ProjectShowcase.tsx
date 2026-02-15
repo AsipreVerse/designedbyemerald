@@ -3,7 +3,6 @@
 import { useState, useCallback } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/routing'
-import { motion, AnimatePresence } from 'framer-motion'
 import { useLocale } from 'next-intl'
 import clsx from 'clsx'
 
@@ -22,42 +21,27 @@ function ImageCarousel({
     title: string
 }) {
     const [currentIndex, setCurrentIndex] = useState(0)
-    const [direction, setDirection] = useState(0)
 
     const goTo = useCallback(
         (newIndex: number) => {
-            setDirection(newIndex > currentIndex ? 1 : -1)
             setCurrentIndex(newIndex)
         },
-        [currentIndex]
+        []
     )
 
     const goNext = useCallback(() => {
         if (currentIndex < images.length - 1) {
-            setDirection(1)
             setCurrentIndex((i) => i + 1)
         }
     }, [currentIndex, images.length])
 
     const goPrev = useCallback(() => {
         if (currentIndex > 0) {
-            setDirection(-1)
             setCurrentIndex((i) => i - 1)
         }
     }, [currentIndex])
 
-    // Swipe handling
-    const swipeThreshold = 50
-    const handleDragEnd = useCallback(
-        (_: any, info: { offset: { x: number } }) => {
-            if (info.offset.x < -swipeThreshold && currentIndex < images.length - 1) {
-                goNext()
-            } else if (info.offset.x > swipeThreshold && currentIndex > 0) {
-                goPrev()
-            }
-        },
-        [currentIndex, images.length, goNext, goPrev]
-    )
+
 
     if (images.length === 0) return null
 
@@ -76,53 +60,19 @@ function ImageCarousel({
         )
     }
 
-    // Slide animation variants
-    const variants = {
-        enter: (d: number) => ({
-            x: d > 0 ? '100%' : '-100%',
-            opacity: 0,
-        }),
-        center: {
-            x: 0,
-            opacity: 1,
-        },
-        exit: (d: number) => ({
-            x: d > 0 ? '-100%' : '100%',
-            opacity: 0,
-        }),
-    }
-
     return (
         <div className="group/carousel relative">
             {/* Image Container */}
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-neutral-900 ring-1 ring-white/10">
-                <AnimatePresence initial={false} custom={direction} mode="popLayout">
-                    <motion.div
-                        key={currentIndex}
-                        custom={direction}
-                        variants={variants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={{
-                            x: { type: 'spring', stiffness: 300, damping: 30 },
-                            opacity: { duration: 0.2 },
-                        }}
-                        drag="x"
-                        dragConstraints={{ left: 0, right: 0 }}
-                        dragElastic={0.7}
-                        onDragEnd={handleDragEnd}
-                        className="absolute inset-0 cursor-grab active:cursor-grabbing"
-                    >
-                        <Image
-                            {...images[currentIndex]}
-                            alt={images[currentIndex].alt || `${title} — ${currentIndex + 1}`}
-                            fill
-                            className="pointer-events-none object-cover"
-                            sizes="(min-width: 1024px) 50vw, 100vw"
-                        />
-                    </motion.div>
-                </AnimatePresence>
+                <div className="absolute inset-0">
+                    <Image
+                        {...images[currentIndex]}
+                        alt={images[currentIndex].alt || `${title} — ${currentIndex + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="(min-width: 1024px) 50vw, 100vw"
+                    />
+                </div>
 
                 {/* Gradient edges for depth */}
                 <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-neutral-950/20 to-transparent" />
@@ -193,11 +143,7 @@ function ProjectRowSingle({
     const locale = useLocale()
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-15%' }}
-            transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
+        <div
             className="group relative overflow-hidden rounded-3xl bg-neutral-900 ring-1 ring-white/10"
         >
             {/* Full-Width Image — natural aspect, not cropped */}
@@ -207,7 +153,7 @@ function ProjectRowSingle({
                     alt={caseStudy.title}
                     fill
                     priority={isFirst}
-                    className="object-cover transition duration-700 group-hover:scale-[1.02]"
+                    className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                 />
                 {/* Bottom gradient for text legibility */}
@@ -248,7 +194,7 @@ function ProjectRowSingle({
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </div>
     )
 }
 
@@ -273,11 +219,7 @@ function ProjectRowCarousel({
     return (
         <div className="grid grid-cols-1 items-center gap-y-12 lg:grid-cols-2 lg:gap-x-24">
             {/* Text Column */}
-            <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-20%' }}
-                transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+            <div
                 className={clsx(
                     'flex flex-col justify-center',
                     isEven ? 'lg:order-first' : 'lg:order-last'
@@ -321,20 +263,16 @@ function ProjectRowCarousel({
                         </Link>
                     </div>
                 </div>
-            </motion.div>
+            </div>
 
             {/* Image Column — Inline Carousel */}
-            <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: '-20%' }}
-                transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
+            <div
                 className={clsx(
                     isEven ? 'lg:order-last' : 'lg:order-first'
                 )}
             >
                 <ImageCarousel images={allImages} title={caseStudy.title} />
-            </motion.div>
+            </div>
         </div>
     )
 }

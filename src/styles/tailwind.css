@@ -57,10 +57,6 @@
   --spacing-128: 32rem;
   --spacing-144: 36rem;
 
-  --animate-fade-in: fade-in 0.5s linear forwards;
-  --animate-marquee: marquee var(--marquee-duration) linear infinite;
-  --animate-spin-slow: spin 4s linear infinite;
-  --animate-spin-reverse-slower: spin-reverse 6s linear infinite;
 }
 
 /* ── Hero Animations ── */
