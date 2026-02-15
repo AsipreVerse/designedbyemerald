@@ -18,7 +18,7 @@ export function ContactSection() {
     <Container className="mt-16 sm:mt-24 lg:mt-32">
       <FadeIn className="-mx-6 px-6 py-20 sm:mx-0 sm:py-32 md:px-12"
         style={{
-          backgroundImage: 'url(/images/marble-texture.jpg)',
+          backgroundImage: 'url(/images/marble-texture.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

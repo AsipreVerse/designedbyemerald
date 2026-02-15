@@ -26,6 +26,7 @@ function Hero() {
                 src={imageHeroCover}
                 alt="Designed by Emerald Interior"
                 fill
+                sizes="100vw"
                 className="hero-bg-zoom object-cover opacity-80"
                 priority
                 quality={90}
@@ -77,6 +78,7 @@ function Intro() {
                         sizes="(min-width: 1024px) 50vw, 100vw"
                         quality={85}
                         placeholder="blur"
+                        loading="lazy"
                     />
                 </div>
             </div>

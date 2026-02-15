@@ -48,7 +48,7 @@ export function CookieConsent() {
             <div
                 className="relative mx-auto max-w-xl overflow-hidden"
                 style={{
-                    backgroundImage: 'url(/images/marble-texture.jpg)',
+                    backgroundImage: 'url(/images/marble-texture.webp)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}

@@ -20,7 +20,7 @@ export function Footer() {
     <footer
       className="relative mt-16 w-full overflow-hidden sm:mt-24 lg:mt-32"
       style={{
-        backgroundImage: 'url(/images/marble-texture.jpg)',
+        backgroundImage: 'url(/images/marble-texture.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

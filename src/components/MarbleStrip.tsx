@@ -9,7 +9,7 @@ export function MarbleStrip({
         <div
             className={`relative w-full overflow-hidden ${height} ${className}`}
             style={{
-                backgroundImage: 'url(/images/marble-texture.jpg)',
+                backgroundImage: 'url(/images/marble-texture.webp)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}

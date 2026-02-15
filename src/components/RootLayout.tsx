@@ -239,7 +239,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           aria-hidden={expanded ? 'true' : undefined}
           inert={expanded ? true : undefined}
           style={{
-            backgroundImage: 'url(/images/marble-texture.jpg)',
+            backgroundImage: 'url(/images/marble-texture.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center top',
           }}
