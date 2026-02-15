@@ -100,7 +100,7 @@ export async function generateMetadata({
             },
         },
         other: {
-            'theme-color': '#0a0a0a',
+            'theme-color': '#0F2B1D',
         },
     }
 }

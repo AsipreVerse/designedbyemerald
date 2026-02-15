@@ -235,7 +235,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
       <header>
         {/* Main navbar — marble texture background */}
         <div
-          className="absolute top-0 right-0 left-0 z-40 bg-neutral-950 pt-12 sm:pt-14"
+          className="absolute top-0 right-0 left-0 z-40 bg-marble-deep pt-12 sm:pt-14"
           aria-hidden={expanded ? 'true' : undefined}
           inert={expanded ? true : undefined}
           style={{
@@ -246,11 +246,11 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
         >
           <div className="relative bg-marble-deep/60 pb-3 sm:pb-4 backdrop-blur-sm">
             <Header
+              invert
               panelId={panelId}
               icon={MenuIcon}
               toggleRef={openRef}
               expanded={expanded}
-              invert
               onToggle={() => {
                 setExpanded((expanded) => !expanded)
                 window.setTimeout(() =>
