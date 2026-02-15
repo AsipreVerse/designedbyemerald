@@ -208,8 +208,6 @@ html {
   scrollbar-color: rgba(176, 141, 87, 0.4) transparent;
   overscroll-behavior-y: none;
   /* Prevent rubber-banding */
-  touch-action: manipulation;
-  /* Eliminate 300ms tap delay */
   overflow-x: hidden;
   /* Prevent horizontal drift */
 }
