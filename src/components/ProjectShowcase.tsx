@@ -74,7 +74,7 @@ function ImageCarousel({
     return (
         <div className="group/carousel relative">
             {/* Image Container */}
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-neutral-900 ring-1 ring-white/10">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-neutral-900 ring-1 ring-white/10 touch-pan-y">
                 <div
                     className="absolute inset-0"
                     onTouchStart={handleTouchStart}
@@ -92,7 +92,7 @@ function ImageCarousel({
 
                 {/* Preload adjacent slides (hidden, fetched in background) */}
                 {currentIndex > 0 && (
-                    <div className="absolute inset-0 opacity-0" aria-hidden="true">
+                    <div className="pointer-events-none absolute inset-0 opacity-0" aria-hidden="true">
                         <Image
                             {...images[currentIndex - 1]}
                             alt=""
@@ -104,7 +104,7 @@ function ImageCarousel({
                     </div>
                 )}
                 {currentIndex < images.length - 1 && (
-                    <div className="absolute inset-0 opacity-0" aria-hidden="true">
+                    <div className="pointer-events-none absolute inset-0 opacity-0" aria-hidden="true">
                         <Image
                             {...images[currentIndex + 1]}
                             alt=""
