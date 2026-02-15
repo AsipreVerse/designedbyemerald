@@ -185,20 +185,13 @@ export function Footer() {
             {/* Bottom bar */}
             <div className="border-t border-cream-50/10 py-8">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex flex-col gap-1 sm:flex-row sm:gap-4">
-                  <p className="text-xs text-cream-50/40">
-                    &copy; Designed by Emerald {new Date().getFullYear()}. {t('rights')}
-                  </p>
-                  <p className="text-xs text-cream-50/40">
-                    {t('developedBy')} <a href="https://aspireverse.co.uk" target="_blank" rel="noopener noreferrer" className="text-cream-50/60 hover:text-cream-50 force-ltr inline-block">AspireVerse™</a>
-                  </p>
-                </div>
-                <Link
-                  href="/privacy"
-                  className="text-xs text-cream-50/40 transition hover:text-cream-50/70"
-                >
-                  {t('privacy')}
-                </Link>
+                <p className="text-xs text-cream-50/40">
+                  &copy; Designed by Emerald {new Date().getFullYear()}. {t('rights')}
+                </p>
+                <p className="text-xs text-cream-50/40">
+                  {t('developedBy')}{' '}
+                  <a href="https://aspireverse.co.uk" target="_blank" rel="noopener noreferrer" className="text-cream-50/60 hover:text-cream-50 force-ltr inline-block">AspireVerse™</a>
+                </p>
               </div>
             </div>
           </FadeIn>
