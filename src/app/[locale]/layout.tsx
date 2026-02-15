@@ -78,7 +78,7 @@ export async function generateMetadata({
             type: 'website',
             images: [
                 {
-                    url: '/og-image.jpg',
+                    url: '/og-image.webp',
                     width: 1200,
                     height: 630,
                     alt: 'Designed by Emerald — Interior Design & Fit-Out | Dubai',
@@ -90,7 +90,7 @@ export async function generateMetadata({
             card: 'summary_large_image',
             title: t('title.default'),
             description: t('description'),
-            images: ['/og-image.jpg'],
+            images: ['/og-image.webp'],
         },
         alternates: {
             canonical: `/${locale}`,
@@ -151,7 +151,7 @@ export default async function LocaleLayout({
                             alternateName: 'DBE',
                             url: 'https://designedbyemerald.com',
                             logo: 'https://designedbyemerald.com/favicon.svg',
-                            image: 'https://designedbyemerald.com/og-image.jpg',
+                            image: 'https://designedbyemerald.com/og-image.webp',
                             description:
                                 'Interior design, fit-out, engineering, and facility management solutions in Dubai, UAE.',
                             address: {
