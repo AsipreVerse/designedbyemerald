@@ -136,7 +136,7 @@ export default async function LocaleLayout({
             dir={locale === 'ar' ? 'rtl' : 'ltr'}
             className={`h-full bg-neutral-950 text-base antialiased ${prata.variable} ${cinzel.variable} ${josefinSans.variable} ${cairo.variable} ${amiri.variable}`}
         >
-            <body className="flex min-h-full flex-col">
+            <body className="flex min-h-dvh flex-col">
                 <NextIntlClientProvider messages={messages}>
                     {children}
                     <ConsentAnalytics />

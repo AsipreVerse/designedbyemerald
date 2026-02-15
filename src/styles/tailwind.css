@@ -206,4 +206,17 @@ html[dir="rtl"] .uppercase {
 html {
   scrollbar-width: thin;
   scrollbar-color: rgba(176, 141, 87, 0.4) transparent;
+  overscroll-behavior-y: none;
+  /* Prevent rubber-banding */
+  touch-action: manipulation;
+  /* Eliminate 300ms tap delay */
+  overflow-x: hidden;
+  /* Prevent horizontal drift */
+}
+
+body {
+  overflow-x: hidden;
+  /* Double lock for horizontal drift */
+  position: relative;
+  /* Ensure it respects overflow */
 }

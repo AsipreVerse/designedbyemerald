@@ -71,6 +71,7 @@ function ImageCarousel({
                         fill
                         className="object-cover"
                         sizes="(min-width: 1024px) 50vw, 100vw"
+                        quality={90}
                     />
                 </div>
 
@@ -155,6 +156,7 @@ function ProjectRowSingle({
                     priority={isFirst}
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                    quality={90}
                 />
                 {/* Bottom gradient for text legibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/30 to-transparent" />
