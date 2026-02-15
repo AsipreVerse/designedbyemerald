@@ -65,14 +65,12 @@
 @keyframes hero-fade-up {
   from {
     opacity: 0;
-    transform: translateY(2rem);
-    filter: blur(4px);
+    transform: translateY(1rem);
   }
 
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
@@ -90,7 +88,7 @@
 /* Subtle background zoom */
 @keyframes hero-bg-zoom {
   from {
-    transform: scale(1.08);
+    transform: scale(1.03);
   }
 
   to {
@@ -100,12 +98,12 @@
 
 .hero-line-1 {
   opacity: 0;
-  animation: hero-fade-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+  animation: hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
 }
 
 .hero-line-2 {
   opacity: 0;
-  animation: hero-fade-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+  animation: hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
 }
 
 .hero-shimmer {
@@ -120,12 +118,12 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation:
-    hero-fade-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards,
-    hero-shimmer 3s ease-in-out 2s 1;
+    hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards,
+    hero-shimmer 3s ease-in-out 1.5s 1;
 }
 
 .hero-bg-zoom {
-  animation: hero-bg-zoom 8s ease-out forwards;
+  animation: hero-bg-zoom 6s ease-out forwards;
 }
 
 /* ── Arabic Typography Overrides ── */

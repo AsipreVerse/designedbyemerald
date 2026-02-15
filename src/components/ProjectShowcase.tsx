@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/routing'
 import { useLocale } from 'next-intl'
@@ -21,6 +21,7 @@ function ImageCarousel({
     title: string
 }) {
     const [currentIndex, setCurrentIndex] = useState(0)
+    const touchStartX = useRef(0)
 
     const goTo = useCallback(
         (newIndex: number) => {
@@ -41,6 +42,16 @@ function ImageCarousel({
         }
     }, [currentIndex])
 
+    // Native touch swipe
+    const handleTouchStart = useCallback((e: React.TouchEvent) => {
+        touchStartX.current = e.touches[0].clientX
+    }, [])
+
+    const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+        const delta = touchStartX.current - e.changedTouches[0].clientX
+        if (delta > 50) goNext()
+        else if (delta < -50) goPrev()
+    }, [goNext, goPrev])
 
 
     if (images.length === 0) return null
@@ -64,7 +75,11 @@ function ImageCarousel({
         <div className="group/carousel relative">
             {/* Image Container */}
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-neutral-900 ring-1 ring-white/10">
-                <div className="absolute inset-0">
+                <div
+                    className="absolute inset-0"
+                    onTouchStart={handleTouchStart}
+                    onTouchEnd={handleTouchEnd}
+                >
                     <Image
                         {...images[currentIndex]}
                         alt={images[currentIndex].alt || `${title} — ${currentIndex + 1}`}

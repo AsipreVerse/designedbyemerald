@@ -21,7 +21,7 @@ function Hero() {
     const t = useTranslations('Hero')
 
     return (
-        <div className="relative h-screen w-full overflow-hidden bg-neutral-950">
+        <div className="relative h-dvh w-full overflow-hidden bg-neutral-950">
             <Image
                 src={imageHeroCover}
                 alt="Designed by Emerald Interior"
