@@ -185,27 +185,32 @@ function ProjectRowSingle({
     const locale = useLocale()
 
     return (
-        <div
-            className="group relative overflow-hidden rounded-3xl bg-neutral-900 ring-1 ring-white/10"
-        >
-            {/* Full-Width Image — natural aspect, not cropped */}
-            <div className="relative aspect-[16/9] w-full sm:aspect-[2/1] lg:aspect-[21/9]">
+        <div className="group relative flex flex-col overflow-hidden rounded-3xl bg-neutral-900 ring-1 ring-white/10 lg:block">
+            {/* Full-Card Touch Target (Mobile & Desktop) */}
+            <Link
+                href={caseStudy.href}
+                className="absolute inset-0 z-20 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-neutral-950"
+                aria-label={`View project: ${caseStudy.title}`}
+            />
+
+            {/* Image Container */}
+            <div className="relative aspect-[4/3] w-full sm:aspect-[2/1] lg:aspect-[21/9]">
                 <Image
                     {...caseStudy.image}
                     alt={caseStudy.title}
                     fill
                     priority={isFirst}
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                     quality={90}
                 />
-                {/* Bottom gradient for text legibility */}
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/30 to-transparent" />
+                {/* Desktop Gradient Overlay (Hidden on Mobile for clarity) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/30 to-transparent opacity-0 transition-opacity duration-500 lg:opacity-100" />
             </div>
 
-            {/* Text Overlay at Bottom */}
-            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10 lg:p-12">
-                <div className="max-w-xl">
+            {/* Content Container */}
+            <div className="relative flex flex-col bg-neutral-900 p-6 sm:p-10 lg:absolute lg:inset-x-0 lg:bottom-0 lg:bg-transparent lg:p-12">
+                <div className="max-w-xl pointer-events-none lg:pointer-events-auto">
                     <div className="flex items-center gap-3">
                         <span className="h-px w-8 bg-gold" />
                         <p className={clsx(
@@ -221,19 +226,17 @@ function ProjectRowSingle({
                     <p className="mt-3 text-sm leading-relaxed text-cream-50/70 sm:text-base lg:max-w-md">
                         {caseStudy.description}
                     </p>
+
+                    {/* Visual Button (Non-clickable, decorative since card is linked) */}
                     <div className="mt-6">
-                        <Link
-                            href={caseStudy.href}
-                            className="group/cta inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-gold"
-                            aria-label={`View project: ${caseStudy.title}`}
-                        >
+                        <div className="group/cta inline-flex items-center gap-2 text-sm font-medium text-white transition-colors group-hover:text-gold">
                             {projectLabel}
-                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-colors group-hover/cta:bg-gold/20">
-                                <svg className="h-3 w-3 transition-transform group-hover/cta:translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-colors group-hover:bg-gold/20">
+                                <svg className="h-3 w-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                                 </svg>
                             </span>
-                        </Link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -264,7 +267,7 @@ function ProjectRowCarousel({
             {/* Text Column */}
             <div
                 className={clsx(
-                    'flex flex-col justify-center',
+                    'flex flex-col justify-center order-last',
                     isEven ? 'lg:order-first' : 'lg:order-last'
                 )}
             >
@@ -281,12 +284,12 @@ function ProjectRowCarousel({
                     </div>
 
                     {/* Title */}
-                    <h3 className="mt-6 font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
+                    <h3 className="mt-6 font-display text-3xl font-medium tracking-tight text-white sm:text-4xl text-pretty">
                         {caseStudy.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-4 text-base leading-relaxed text-cream-50/70 sm:text-lg">
+                    <p className="mt-4 text-base leading-relaxed text-cream-50/70 sm:text-lg text-pretty">
                         {caseStudy.description}
                     </p>
 
@@ -311,6 +314,7 @@ function ProjectRowCarousel({
             {/* Image Column — Inline Carousel */}
             <div
                 className={clsx(
+                    'order-first',
                     isEven ? 'lg:order-last' : 'lg:order-first'
                 )}
             >
