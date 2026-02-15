@@ -90,6 +90,32 @@ function ImageCarousel({
                     />
                 </div>
 
+                {/* Preload adjacent slides (hidden, fetched in background) */}
+                {currentIndex > 0 && (
+                    <div className="absolute inset-0 opacity-0" aria-hidden="true">
+                        <Image
+                            {...images[currentIndex - 1]}
+                            alt=""
+                            fill
+                            className="object-cover"
+                            sizes="(min-width: 1024px) 50vw, 100vw"
+                            loading="eager"
+                        />
+                    </div>
+                )}
+                {currentIndex < images.length - 1 && (
+                    <div className="absolute inset-0 opacity-0" aria-hidden="true">
+                        <Image
+                            {...images[currentIndex + 1]}
+                            alt=""
+                            fill
+                            className="object-cover"
+                            sizes="(min-width: 1024px) 50vw, 100vw"
+                            loading="eager"
+                        />
+                    </div>
+                )}
+
                 {/* Gradient edges for depth */}
                 <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-neutral-950/20 to-transparent" />
                 <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-neutral-950/20 to-transparent" />

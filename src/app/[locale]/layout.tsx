@@ -136,6 +136,9 @@ export default async function LocaleLayout({
             dir={locale === 'ar' ? 'rtl' : 'ltr'}
             className={`h-full bg-neutral-950 text-base antialiased ${prata.variable} ${cinzel.variable} ${josefinSans.variable} ${cairo.variable} ${amiri.variable}`}
         >
+            <head>
+                <link rel="preload" href="/images/marble-texture.webp" as="image" type="image/webp" />
+            </head>
             <body className="flex min-h-dvh flex-col bg-neutral-950">
                 <NextIntlClientProvider messages={messages}>
                     {children}
