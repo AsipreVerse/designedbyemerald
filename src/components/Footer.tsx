@@ -115,9 +115,23 @@ export function Footer() {
                   <li>
                     <a
                       href="mailto:info@designedbyemerald.com"
-                      className="text-cream-50/70 transition hover:text-cream-50 force-ltr inline-block"
+                      className="inline-flex items-center gap-2 text-cream-50/70 transition hover:text-cream-50"
                     >
-                      info@designedbyemerald.com
+                      <svg
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                        />
+                      </svg>
+                      <span className="force-ltr">info@designedbyemerald.com</span>
                     </a>
                   </li>
                   <li>
@@ -142,8 +156,27 @@ export function Footer() {
                       <span className="force-ltr">@designedbyemerald.studio</span>
                     </a>
                   </li>
-                  <li className="text-cream-50/50">
-                    {t('location')}
+                  <li className="inline-flex items-center gap-2 text-cream-50/50">
+                    <svg
+                      className="h-4 w-4 shrink-0 text-cream-50/70"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                      />
+                    </svg>
+                    <span>{t('location')}</span>
                   </li>
                 </ul>
               </div>
@@ -154,7 +187,7 @@ export function Footer() {
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex flex-col gap-1 sm:flex-row sm:gap-4">
                   <p className="text-xs text-cream-50/40">
-                    &copy; Designed by Emerald LLC {new Date().getFullYear()}. {t('rights')}
+                    &copy; Designed by Emerald {new Date().getFullYear()}. {t('rights')}
                   </p>
                   <p className="text-xs text-cream-50/40">
                     {t('developedBy')} <a href="https://aspireverse.co.uk" target="_blank" rel="noopener noreferrer" className="text-cream-50/60 hover:text-cream-50 force-ltr inline-block">AspireVerse™</a>
